@@ -24,41 +24,48 @@ use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 |
 */
 
-// routes Main
-Route::get('/', [MainController::class, 'index'])->name('main.index');
-
-Route::middleware('guest')->group(function () {
-    // register
-    Route::get('/register', [RegisterController::class, 'create'])->name('register');
-    Route::post('/register', [RegisterController::class, 'store']);
-    // login
-    Route::get('/login', [LoginController::class, 'create'])->name('login');
-    Route::post('/login', [LoginController::class, 'store']);
-    // forgot password
-    Route::get('/forgot-password', [ForgotPasswordController::class, 'create'])->name('password.request');
-    Route::post('/forgot-password', [ForgotPasswordController::class, 'store'])->name('password.email');
-    // reset password
-    Route::get('/reset-password', [ResetPasswordController::class, 'create'])->name('password.reset');
-    Route::post('/reset-password', [ResetPasswordController::class, 'store'])->name('password.update');
+Route::get('/', function () {
+    return redirect(app()->getLocale());
 });
 
-// auth routes
-Route::middleware('auth')->group(function () {
-    // logout
-    Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
-    //profile
-    Route::get('/profile', [ProfileController::class, 'index'])->middleware(['verified', 'password.confirm'])->name('profile');
-    // confirm-password
-    Route::get('/confirm-password', [PasswordConfirmationController::class, 'show'])->name('password.confirm');
-    Route::post('/confirm-password', [PasswordConfirmationController::class, 'store']);
+Route::group(['prefix' => '{locale}', 'middleware' => 'setlocale'], function () {
 
-    // email-verify
-    Route::get('email/verify/', [EmailVerificationPromtController::class, '__invoke'])->name('verification.notice');
-    Route::get('email/verify/{id}/{hash}', [VerifyEmailController::class, '__invoke'])->middleware('signed')->name('verification.verify');
-    Route::post('email/verification-notification', [EmailVerificationNotificationController::class, '__invoke'])->name('verification.send');
+    // routes Main
+    Route::get('/', [MainController::class, 'index'])->name('main.index');
 
-    // admin
-    Route::prefix('admin')->group(function () {
-        Route::get('/', [AdminController::class, 'index'])->middleware('verified')->name('admin.index');
+    Route::middleware('guest')->group(function () {
+        // register
+        Route::get('/register', [RegisterController::class, 'create'])->name('register');
+        Route::post('/register', [RegisterController::class, 'store']);
+        // login
+        Route::get('/login', [LoginController::class, 'create'])->name('login');
+        Route::post('/login', [LoginController::class, 'store']);
+        // forgot password
+        Route::get('/forgot-password', [ForgotPasswordController::class, 'create'])->name('password.request');
+        Route::post('/forgot-password', [ForgotPasswordController::class, 'store'])->name('password.email');
+        // reset password
+        Route::get('/reset-password', [ResetPasswordController::class, 'create'])->name('password.reset');
+        Route::post('/reset-password', [ResetPasswordController::class, 'store'])->name('password.update');
+    });
+
+    // auth routes
+    Route::middleware('auth')->group(function () {
+        // logout
+        Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
+        //profile
+        Route::get('/profile', [ProfileController::class, 'index'])->middleware(['verified', 'password.confirm'])->name('profile');
+        // confirm-password
+        Route::get('/confirm-password', [PasswordConfirmationController::class, 'show'])->name('password.confirm');
+        Route::post('/confirm-password', [PasswordConfirmationController::class, 'store']);
+
+        // email-verify
+        Route::get('email/verify/', [EmailVerificationPromtController::class, '__invoke'])->name('verification.notice');
+        Route::get('email/verify/{id}/{hash}', [VerifyEmailController::class, '__invoke'])->middleware('signed')->name('verification.verify');
+        Route::post('email/verification-notification', [EmailVerificationNotificationController::class, '__invoke'])->name('verification.send');
+
+        // admin
+        Route::prefix('admin')->group(function () {
+            Route::get('/', [AdminController::class, 'index'])->middleware('verified')->name('admin.index');
+        });
     });
 });

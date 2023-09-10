@@ -47,7 +47,7 @@
                 @endforeach --}}
             </div>
             <div class="logo-footer text-center">
-                <a href="{{ route('main.index') }}">{{ config('app.name') }}</a>
+                <a href="{{ route('main.index', app()->getLocale()) }}">{{ config('app.name') }}</a>
             </div>
             <ul class="footer-menu text-uppercase d-flex justify-content-center">
                 <li class="nav-item"><a href="{{ route('main.index', app()->getLocale()) }}" class="nav-link">{{ __('Home') }}</a></li>

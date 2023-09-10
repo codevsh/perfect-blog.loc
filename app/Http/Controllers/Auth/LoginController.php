@@ -20,12 +20,11 @@ class LoginController extends Controller
             'email' => 'required|email',
             'password' => 'required|string'
         ]);
-        if (! Auth::attempt($data, $request->boolean('remember'))) {
+        if (!Auth::attempt($data, $request->boolean('remember'))) {
             // если не прошёл валидацию или ввел не верные данные
             throw ValidationException::withMessages([
                 'email' => trans('auth.failed')
             ]);
-
         }
         // Если прошёл валидацию
         $request->session()->regenerate();
@@ -41,5 +40,9 @@ class LoginController extends Controller
         $request->session()->regenerateToken();
 
         return redirect()->route('main.index');
+    }
+    public function redirectTo()
+    {
+        return app()->getLocale() . RouteServiceProvider::HOME;
     }
 }

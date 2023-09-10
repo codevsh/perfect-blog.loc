@@ -8,10 +8,10 @@
                 <div class="col-md-6 offset-md-3">
                     <div class="block text-center">
                         <div class="logo text-center">
-                            <a href="{{ route('main.index') }}">{{ config('app.name') }}</a>
+                            <a href="{{ route('main.index', app()->getLocale()) }}">{{ config('app.name') }}</a>
                         </div>
                         <h2 class="text-center">{{ __('Welcome') }}</h2>
-                        <form class="text-left clearfix" action="{{ route('register') }}" method="Post">
+                        <form class="text-left clearfix" action="{{ route('register', app()->getLocale()) }}" method="Post">
                             @csrf
                             <div class="form-group mb-3">
                                 <input type="text" name="name" id="name"
@@ -46,7 +46,7 @@
                                 <button type="submit" class="btn-main text-center mb-3">{{ __('Register') }}</button>
                             </div>
                         </form>
-                        <p class="mt-20">{{ __('Already registered?') }} <a href="{{ route('login') }}"> {{ __('Login') }}</a></p>
+                        <p class="mt-20">{{ __('Already registered?') }} <a href="{{ route('login', app()->getLocale()) }}"> {{ __('Login') }}</a></p>
                     </div>
                 </div>
             </div>

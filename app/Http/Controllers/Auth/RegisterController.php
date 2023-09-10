@@ -16,7 +16,7 @@ class RegisterController extends Controller
     {
         return view('auth.register');
     }
-    public function store(Request $request)
+    public function store( Request $request)
     {
         $data = $request->validate([
             'name' => 'required|string',
@@ -31,6 +31,10 @@ class RegisterController extends Controller
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect( RouteServiceProvider::HOME);
+    }
+    public function redirectTo()
+    {
+        return app()->getLocale() . RouteServiceProvider::HOME;
     }
 }

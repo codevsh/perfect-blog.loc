@@ -10,7 +10,7 @@
         </div>
         <div class="col-md-4 col-sm-12">
             <div class="logo text-center">
-                <a href="{{ route('main.index') }}">Perfect-Blog</a>
+                <a href="{{ route('main.index', app()->getLocale()) }}">Perfect-Blog</a>
             </div>
         </div>
         <div class="col-md-4 col-sm-12">
@@ -18,9 +18,9 @@
                 <ul class="top-menu nav ml-auto d-flex justify-content-end">
                     @guest
                         <li class="nav-item"><a class="nav-link text-muted"
-                                href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                                href="{{ route('login', app()->getLocale()) }}">{{ __('Login') }}</a></li>
                         <li class="nav-item"><a class="nav-link text-muted"
-                                href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                                href="{{ route('register', app()->getLocale()) }}">{{ __('Register') }}</a></li>
                     @endguest
                     @auth
                         <li class="nav-item dropdown">
@@ -29,15 +29,15 @@
                                 {{ Auth::user()->name }}
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="{{ route('profile') }}">Profile</a></li>
-                                <li><a class="dropdown-item" href="{{ route('admin.index') }}">Setting</a></li>
+                                <li><a class="dropdown-item" href="{{ route('profile', app()->getLocale()) }}">Profile</a></li>
+                                <li><a class="dropdown-item" href="{{ route('admin.index', app()->getLocale()) }}">Setting</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
                                 <li>
-                                    <form action="{{ route('logout') }}" method="POST">
+                                    <form action="{{ route('logout', app()->getLocale()) }}" method="POST">
                                         @csrf
-                                        <a class="dropdown-item" onclick="event.preventDefault(); this.closest('form').submit();" href="{{ route('logout') }}">Logout</a>
+                                        <a class="dropdown-item" onclick="event.preventDefault(); this.closest('form').submit();" href="{{ route('logout', app()->getLocale()) }}">Logout</a>
                                     </form>
                                 </li>
                             </ul>
@@ -59,12 +59,12 @@
 <div class="container">
     <div class="nav-scroller py-1 mb-2">
         <nav class="nav d-flex justify-content-center">
-            <a class="nav-link text-muted" href="{{ route('main.index') }}">Home <span
+            <a class="nav-link text-muted" href="{{ route('main.index', app()->getLocale()) }}">Home <span
                     class="sr-only">(current)</span></a>
             <a class="nav-link text-muted" href="#">About</a>
             <a class="nav-link text-muted" href="#">Contact</a>
-            <a class="nav-link text-muted" href="{{ route('profile') }}">Profile</a>
-            <a class="nav-link text-muted" href="{{ route('admin.index') }}">Settings</a>
+            <a class="nav-link text-muted" href="{{ route('profile', app()->getLocale()) }}">Profile</a>
+            <a class="nav-link text-muted" href="{{ route('admin.index', app()->getLocale()) }}">Settings</a>
         </nav>
     </div>
 </div>

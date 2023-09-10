@@ -8,13 +8,13 @@
                 <div class="col-md-6 offset-md-3">
                     <div class="block text-center">
                         <div class="logo text-center">
-                            <a href="{{ route('main.index') }}">{{ config('app.name') }}</a>
+                            <a href="{{ route('main.index', app()->getLocale()) }}">{{ config('app.name') }}</a>
                         </div>
                         <h2 class="text-center">{{ __('Welcome back!') }}</h2>
                         @if (session('status'))
                             <div class="alert alert-success">{{ session('status') }}</div>
                         @endif
-                        <form class="text-left clearfix" action="{{ route('login') }}" method="Post">
+                        <form class="text-left clearfix" action="{{ route('login', app()->getLocale()) }}" method="Post">
                             @csrf
 
                             <div class="form-group mb-3">
@@ -42,13 +42,14 @@
                                     </label>
                                 </div>
                                 <div class="col">
-                                    <a href="{{ route('password.request') }}" class="text-success">{{ __('Forgot your password?') }}</a>
+                                    <a href="{{ route('password.request', app()->getLocale()) }}" class="text-success">{{ __('Forgot your password?') }}</a>
                                 </div>
                             </div>
 
                             <div class="text-center">
                                 <button type="submit" class="btn-main text-center mb-3">{{ __('Login') }}</button>
                             </div>
+                            <p>Don't have an account yet? <span><a href="{{ route('register', app()->getLocale()) }}">{{ __('Register') }}</a></span></p>
                         </form>
                     </div>
                 </div>
