@@ -36,7 +36,7 @@ class RoleController extends Controller
         if ($result) {
             return redirect()->route('admin.role.index')->with('success', trans('Role created successfully!'));
         } else {
-            return back()->with('error', trans('Something went wrong'));
+            return redirect()->back()->with('error', trans('Something went wrong'));
         }
 
     }
@@ -45,7 +45,7 @@ class RoleController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Role $role)
+    public function edit($locale, Role $role)
     {
         return view('admin.roles.edit', compact('role'));
     }
@@ -53,14 +53,14 @@ class RoleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update( UpdateRoleRequest $request,  Role $role)
+    public function update($locale, UpdateRoleRequest $request, Role $role)
     {
         $data = $request->validated();
         $result = $role->update($data);
         if ($result) {
             return redirect()->route('admin.role.index')->with('success', trans('Role has been updated successfully!'));
         } else {
-            return back(app()->getLocale())->with('error', trans('Something went wrong'));
+            return redirect()->back()->with('error', trans('Something went wrong'));
         }
 
     }
@@ -68,13 +68,13 @@ class RoleController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Role $role)
+    public function destroy($locale, Role $role)
     {
         $result = $role->delete();
         if ($result) {
-            return redirect()->route('admin.role.index')->with('success', trans('Role has been deleted successfully'));
+            return redirect()->route('admin.role.index')->with('success', trans('Role has been deleted successfully!'));
         } else {
-            return redirect()->route('admin.role.index')->with('error', trans('Something went wrong'));
+            return redirect()->back()->with('error', trans('Something went wrong'));
         }
     }
 }

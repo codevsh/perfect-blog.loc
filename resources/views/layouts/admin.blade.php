@@ -91,8 +91,8 @@
                     </a>
                     <div class="dropdown-menu bg-white" aria-labelledby="navbarDropdown">
                         @foreach (config('app.available_locales') as $locale)
-                            <a href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(), ['locale', $locale]) }}"
-                                class="dropdown-item text-muted {{ app()->getLocale() == $locale ? ' fw-bold' : '' }}">{{ strtoupper($locale) }}</a>
+                        <a href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(), ['locale' => $locale, true]) }}"
+                            class="nav-link text-muted {{ app()->getLocale() == $locale ? ' fw-bold' : '' }}">{{ strtoupper($locale) }}</a>
                         @endforeach
                     </div>
                 </li>
