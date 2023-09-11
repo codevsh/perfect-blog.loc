@@ -3,7 +3,7 @@
          with font-awesome or any other icon font library -->
 
     <li class="nav-item">
-        <a href="{{ route('admin.role.index', app()->getLocale()) }}" class="nav-link">
+        <a href="{{ route('admin.role.index') }}" class="nav-link">
 
             <i class="nav-icon fas fa-dharmachakra"></i>
             <p>

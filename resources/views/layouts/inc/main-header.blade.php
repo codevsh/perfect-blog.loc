@@ -13,7 +13,7 @@
         </div>
         <div class="col-md-4 col-sm-12">
             <div class="logo text-center">
-                <a href="{{ route('main.index', app()->getLocale()) }}">Perfect-Blog</a>
+                <a href="{{ route('main.index') }}">Perfect-Blog</a>
             </div>
         </div>
         <div class="col-md-4 col-sm-12">
@@ -21,9 +21,9 @@
                 <ul class="top-menu nav ml-auto d-flex justify-content-end">
                     @guest
                         <li class="nav-item"><a class="nav-link text-muted"
-                                href="{{ route('login', app()->getLocale()) }}">{{ __('Login') }}</a></li>
+                                href="{{ route('login') }}">{{ __('Login') }}</a></li>
                         <li class="nav-item"><a class="nav-link text-muted"
-                                href="{{ route('register', app()->getLocale()) }}">{{ __('Register') }}</a></li>
+                                href="{{ route('register') }}">{{ __('Register') }}</a></li>
                     @endguest
                     @auth
                         <li class="nav-item dropdown">
@@ -33,19 +33,19 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item"
-                                        href="{{ route('profile', app()->getLocale()) }}">{{ __('Profile') }}</a>
+                                        href="{{ route('profile') }}">{{ __('Profile') }}</a>
                                 </li>
                                 <li><a class="dropdown-item"
-                                        href="{{ route('admin.index', app()->getLocale()) }}">{{ __('Settings') }}</a></li>
+                                        href="{{ route('admin.index') }}">{{ __('Settings') }}</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
                                 <li>
-                                    <form action="{{ route('logout', app()->getLocale()) }}" method="POST">
+                                    <form action="{{ route('logout') }}" method="POST">
                                         @csrf
                                         <a class="dropdown-item"
                                             onclick="event.preventDefault(); this.closest('form').submit();"
-                                            href="{{ route('logout', app()->getLocale()) }}">{{ __('Logout') }}</a>
+                                            href="{{ route('logout') }}">{{ __('Logout') }}</a>
                                     </form>
                                 </li>
                             </ul>
@@ -58,7 +58,7 @@
                         </a>
                         <ul class="dropdown-menu bg-white" aria-labelledby="navbarDropdown">
                             @foreach (config('app.available_locales') as $locale)
-                                <a href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(), [$locale, true]) }}"
+                                <a href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(), ['locale' => $locale]) }}"
                                     class="nav-link text-muted {{ app()->getLocale() == $locale ? ' fw-bold' : '' }}">{{ strtoupper($locale) }}</a>
                             @endforeach
                         </ul>
@@ -71,13 +71,13 @@
 <div class="container">
     <div class="nav-scroller py-1 mb-2">
         <nav class="nav d-flex justify-content-center">
-            <a class="nav-link text-muted" href="{{ route('main.index', app()->getLocale()) }}">{{ __('Home') }}
+            <a class="nav-link text-muted" href="{{ route('main.index') }}">{{ __('Home') }}
                 <span class="sr-only">(current)</span></a>
             <a class="nav-link text-muted" href="#">{{ __('About') }}</a>
             <a class="nav-link text-muted" href="#">{{ __('Contact') }}</a>
-            <a class="nav-link text-muted" href="{{ route('profile', app()->getLocale()) }}">{{ __('Profile') }}</a>
+            <a class="nav-link text-muted" href="{{ route('profile') }}">{{ __('Profile') }}</a>
             <a class="nav-link text-muted"
-                href="{{ route('admin.index', app()->getLocale()) }}">{{ __('Settings') }}</a>
+                href="{{ route('admin.index') }}">{{ __('Settings') }}</a>
         </nav>
     </div>
 </div>

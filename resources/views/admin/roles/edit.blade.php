@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', 'Admin|Edit Role: '. $role->role_name)
+@section('title', 'Admin|Edit Role: '. $role->title)
 @section('content')
     <div class="content-header">
         <div class="container-fluid">
@@ -9,8 +9,8 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{ route('admin.index',[app()->getLocale()]) }}">{{ __('Home') }}</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('admin.role.index',[app()->getLocale()]) }}">{{ __('Roles') }}</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">{{ __('Home') }}</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.role.index') }}">{{ __('Roles') }}</a></li>
                         <li class="breadcrumb-item active">{{ __('Edit Role') }}</li>
                     </ol>
                 </div><!-- /.col -->
@@ -25,10 +25,10 @@
 
                     <div class="card">
                         <div class="card-header d-flex">
-                            <a href="{{ route('admin.role.index', [app()->getLocale()]) }}" class="btn btn-primary btn-sm ml-auto">{{ __('Back') }}</a>
+                            <a href="{{ route('admin.role.index') }}" class="btn btn-primary btn-sm ml-auto">{{ __('Back') }}</a>
                         </div>
                         <div class="card-body">
-                          <form action="{{ route('admin.role.update',[app()->getLocale(), $role]) }}" method="POST">
+                          <form action="{{ route('admin.role.update', $role) }}" method="POST">
                             @csrf
                             @method('PATCH')
                             <div class="form-group">

@@ -9,8 +9,8 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{ route('admin.index',[app()->getLocale()]) }}">{{ __('Home') }}</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('admin.role.index',[app()->getLocale()]) }}">{{ __('Roles') }}</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">{{ __('Home') }}</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.role.index') }}">{{ __('Roles') }}</a></li>
                         <li class="breadcrumb-item active">{{ __('Add Role') }}</li>
                     </ol>
                 </div><!-- /.col -->
@@ -25,11 +25,11 @@
 
                     <div class="card">
                         <div class="card-header d-flex">
-                            <a href="{{ route('admin.role.index',[app()->getLocale()]) }}"
+                            <a href="{{ route('admin.role.index') }}"
                                 class="btn btn-dark btn-sm ml-auto">{{ __('Back') }}</a>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('admin.role.store',[app()->getLocale()]) }}" method="POST">
+                            <form action="{{ route('admin.role.store') }}" method="POST">
                                 @csrf
                                 <div class="form-group">
                                     <label for="title">{{ __('Role Name') }}</label>

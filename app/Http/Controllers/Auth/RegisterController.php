@@ -33,8 +33,8 @@ class RegisterController extends Controller
 
         return redirect(app()->getLocale() . RouteServiceProvider::HOME);
     }
-    public function redirectTo()
-    {
-        return app()->getLocale() . RouteServiceProvider::HOME;
-    }
+    // public function redirectTo()
+    // {
+    //     return app()->getLocale() . RouteServiceProvider::HOME;
+    // }
 }

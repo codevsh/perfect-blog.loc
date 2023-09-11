@@ -41,8 +41,8 @@ class LoginController extends Controller
 
         return redirect()->route('main.index');
     }
-    public function redirectTo()
-    {
-        return app()->getLocale() . RouteServiceProvider::HOME;
-    }
+    // public function redirectTo()
+    // {
+    //     return app()->getLocale() . RouteServiceProvider::HOME;
+    // }
 }

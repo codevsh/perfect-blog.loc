@@ -9,7 +9,7 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{ route('admin.index', app()->getLocale()) }}">{{ __('Home') }}</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">{{ __('Home') }}</a></li>
                         {{-- <li class="breadcrumb-item active">Dashboard v1</li> --}}
                     </ol>
                 </div><!-- /.col -->
@@ -24,7 +24,7 @@
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <p>{{ __('Roles') }}: {{ $roles->count() }}</p>
-                        <a href="{{ route('admin.role.create', app()->getLocale()) }}" class="btn btn-dark btn-sm ml-auto">{{ __('Add Role') }}</a>
+                        <a href="{{ route('admin.role.create') }}" class="btn btn-dark btn-sm ml-auto">{{ __('Add Role') }}</a>
                     </div>
                     <div class="card-body">
                         @if ($roles->count() > 0)
@@ -41,9 +41,9 @@
                                     <tr>
                                         <td scope="row">{{ $role->id }}</td>
                                         <td>{{ __($role->title) }}</td>
-                                        <td><a href="{{ route('admin.role.edit', [app()->getLocale(), $role]) }}" class="btn btn-dark btn-sm">{{ __('Edit') }}</a></td>
+                                        <td><a href="{{ route('admin.role.edit', $role) }}" class="btn btn-dark btn-sm">{{ __('Edit') }}</a></td>
                                         <td>
-                                            <form action="{{ route('admin.role.delete', [app()->getLocale(), $role]) }}" method="POST">
+                                            <form action="{{ route('admin.role.delete', $role) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger btn-sm">{{ __('Delete') }}</button>
