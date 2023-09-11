@@ -17,7 +17,7 @@ class SetLocale
     public function handle(Request $request, Closure $next): Response
     {
         app()->setLocale($request->segment(1));
-        URL::defaults(['locale' => $request->segment(1)]);
+        // URL::defaults(['locale' => $request->segment(1)]);
         return $next($request);
     }
 }

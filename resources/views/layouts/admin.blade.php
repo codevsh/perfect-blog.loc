@@ -63,34 +63,37 @@
                             {{ Auth::user()->name }}
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{{ route('profile') }}">
+                            <a class="dropdown-item" href="{{ route('profile', app()->getLocale()) }}">
                                 {{ __('My Profile') }}
                             </a>
-                            <a class="dropdown-item" href="{{ route('main.index') }}">
+                            <a class="dropdown-item" href="{{ route('main.index', app()->getLocale()) }}">
                                 {{ __('Back to site') }}
                             </a>
                             <div class="dropdown-divider"></div>
-                            <form action="{{ route('logout') }}" method="POST">
+                            <form action="{{ route('logout', app()->getLocale()) }}" method="POST">
                                 @csrf
-                                <a class="dropdown-item" onclick="event.preventDefault(); this.closest('form').submit();" href="{{ route('logout') }}">Logout</a>
+                                <a class="dropdown-item" onclick="event.preventDefault(); this.closest('form').submit();"
+                                    href="{{ route('logout', app()->getLocale()) }}">{{ __('Logout') }}</a>
                             </form>
                         </div>
                     </li>
                 @else
                     @if (Route::has('login'))
-                        <a href="#" class="nav-link">Login</a>
+                        <a href="{{ route('login', app()->getLocale()) }}" class="nav-link">{{ __('Login') }}</a>
 
-                        <a href="#" class="nav-link">Register</a>
+                        <a href="{{ route('register', app()->getLocale()) }}" class="nav-link">{{ __('Register') }}</a>
                     @endif
                 @endauth
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                        aria-expanded="false">EN
+                    <a class="nav-link dropdown-toggle text-muted bg-light" href="#"
+                        role="button" data-toggle="dropdown" aria-expanded="false">
+                        {{ strtoupper(app()->getLocale()) }}
                     </a>
-                    <div class="dropdown-menu">
-
-                            <a href="#" class="dropdown-item">UA</a>
-                            <a href="#" class="dropdown-item">RU</a>
+                    <div class="dropdown-menu bg-white" aria-labelledby="navbarDropdown">
+                        @foreach (config('app.available_locales') as $locale)
+                            <a href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(), [$locale, true]) }}"
+                                class="dropdown-item text-muted {{ app()->getLocale() == $locale ? ' fw-bold' : '' }}">{{ strtoupper($locale) }}</a>
+                        @endforeach
                     </div>
                 </li>
             </ul>
@@ -100,8 +103,9 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="{{ route('admin.index') }}" class="brand-link mb-3">
-                <span class="brand-image img-circle elevation-3" style="opacity: .8">{{ config('app.name') }}-Admin</span>
+            <a href="{{ route('admin.index', app()->getLocale()) }}" class="brand-link mb-3">
+                <span class="brand-image img-circle elevation-3"
+                    style="opacity: .8">{{ config('app.name') }}-Admin</span>
                 <span class="brand-text font-weight-light"><small>PB</small></span>
             </a>
 
@@ -152,8 +156,7 @@
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer">
-            <strong>{{ __('Copyright') }} &copy; 2023 <a
-                    href="{{ route('main.index') }}">My-Blog-Admin</a>.</strong>
+            <strong>{{ __('Copyright') }} &copy; 2023 <a href="{{ route('main.index', app()->getLocale()) }}">My-Blog-Admin</a>.</strong>
             {{ __('All rights reserved') }}.
             <div class="float-right d-none d-sm-inline-block">
                 <b>{{ __('Version') }}</b> 0.0.1

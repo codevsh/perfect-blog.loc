@@ -1,7 +1,5 @@
 <style>
-    .nav-link.active{
-
-    }
+    .nav-link.active {}
 </style>
 <div class="container">
     <div class="row py-3 align-items-center">
@@ -34,7 +32,8 @@
                                 {{ Auth::user()->name }}
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="{{ route('profile', app()->getLocale()) }}">{{ __('Profile') }}</a>
+                                <li><a class="dropdown-item"
+                                        href="{{ route('profile', app()->getLocale()) }}">{{ __('Profile') }}</a>
                                 </li>
                                 <li><a class="dropdown-item"
                                         href="{{ route('admin.index', app()->getLocale()) }}">{{ __('Settings') }}</a></li>
@@ -52,18 +51,18 @@
                             </ul>
                         </li>
                     @endauth
-                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-muted bg-light" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-muted bg-light" href="#" id="navbarDropdown"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             {{ strtoupper(app()->getLocale()) }}
                         </a>
                         <ul class="dropdown-menu bg-white" aria-labelledby="navbarDropdown">
                             @foreach (config('app.available_locales') as $locale)
-                                <a href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(), ['locale' => $locale]) }}"
-                                    class="nav-link text-muted {{ app()->getLocale() == $locale ? ' fw-bold': ''}}" >{{ strtoupper($locale) }}</a>
+                                <a href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(), [$locale, true]) }}"
+                                    class="nav-link text-muted {{ app()->getLocale() == $locale ? ' fw-bold' : '' }}">{{ strtoupper($locale) }}</a>
                             @endforeach
                         </ul>
-                        </li>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -72,12 +71,13 @@
 <div class="container">
     <div class="nav-scroller py-1 mb-2">
         <nav class="nav d-flex justify-content-center">
-            <a class="nav-link text-muted" href="{{ route('main.index', app()->getLocale()) }}">{{ __('Home') }} <span
-                    class="sr-only">(current)</span></a>
+            <a class="nav-link text-muted" href="{{ route('main.index', app()->getLocale()) }}">{{ __('Home') }}
+                <span class="sr-only">(current)</span></a>
             <a class="nav-link text-muted" href="#">{{ __('About') }}</a>
             <a class="nav-link text-muted" href="#">{{ __('Contact') }}</a>
             <a class="nav-link text-muted" href="{{ route('profile', app()->getLocale()) }}">{{ __('Profile') }}</a>
-            <a class="nav-link text-muted" href="{{ route('admin.index', app()->getLocale()) }}">{{ __('Settings') }}</a>
+            <a class="nav-link text-muted"
+                href="{{ route('admin.index', app()->getLocale()) }}">{{ __('Settings') }}</a>
         </nav>
     </div>
 </div>

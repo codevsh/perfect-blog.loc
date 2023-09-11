@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Main\MainController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Main\ProfileController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\VerifyEmailController;
@@ -66,6 +67,14 @@ Route::group(['prefix' => '{locale}','where' => ['locale' => '[a-zA-Z]{2}'], 'mi
         // admin
         Route::prefix('admin')->group(function () {
             Route::get('/', [AdminController::class, 'index'])->middleware('verified')->name('admin.index');
+            Route::controller(RoleController::class)->group(function(){
+                Route::get('role', 'index')->name('admin.role.index');
+                Route::get('role/create', 'create')->name('admin.role.create');
+                Route::post('role', 'store')->name('admin.role.store');
+                Route::get('role/{role}/edit', 'edit')->name('admin.role.edit');
+                Route::patch('role/{role}', 'update')->name('admin.role.update');
+                Route::delete('role/{role}', 'destroy')->name('admin.role.delete');
+            });
         });
     });
 });

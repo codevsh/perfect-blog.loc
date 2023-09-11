@@ -25,6 +25,27 @@
     "Send reset link": "Надіслати посилання для скидання",
     "Reset Password": "Скинути пароль",
     "Don't have an account yet?": "У вас ще немає облікового запису?",
-    "Remember Me": "Пам'ятай мене"
+    "Remember Me": "Пам'ятай мене",
+    "Admin-Panel": "Адмін-Панель",
+    "Roles": "Ролі",
+    "Users": "Користувачі",
+    "Tags": "Теги",
+    "Articles": "Статті",
+    "Site settings": "Налаштування сайту",
+    "Social links": "Соціальні посилання",
+    "Role Name": "Ім'я ролі",
+    "Actions": "Дії",
+    "user": "Користувач",
+    "admin": "Адмін",
+    "Edit": "Редагувати",
+    "Delete": "Видалити",
+    "Add Role": "Додати роль",
+    "Roles not found": "Ролі не знайдено",
+    "Role created successfully!": "Роль створено успішно!",
+    "Something went wrong": "щось пішло не так",
+    "Edit Role": "Редагувати роль",
+    "Back": "Назад",
+    "Role has been updated successfully!": "Роль успішно оновлено!",
+    "Role has been deleted successfully": "Роль успішно видалено"
 
 }

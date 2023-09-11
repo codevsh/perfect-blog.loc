@@ -24,6 +24,27 @@
     "Forgot your password?": "Забыли пароль?",
     "Reset Password": "Сброс пароля",
     "Don't have an account yet?": "У вас еще нет учетной записи?",
-    "Remember Me": "Запомнить меня"
+    "Remember Me": "Запомнить меня",
+    "Admin-Panel": "Админ-панель",
+    "Roles": "Роли",
+    "Users": "Пользователи",
+    "Tags": "Теги",
+    "Articles": "Статьи",
+    "Site settings": "Настройки сайта",
+    "Social links": "Социальные ссылки",
+    "Role Name": "Имя Роли",
+    "Actions": "Действия",
+    "user": "Пользователь",
+    "admin": "Админ",
+    "Edit": "Редактировать",
+    "Delete": "Удалить",
+    "Add Role": "Добавить роль",
+    "Roles not found": "Роли не найдены",
+    "Role created successfully!": "Роль успешно создана!",
+    "Something went wrong": "что-то пошло не так",
+    "Edit Role": "Изменить роль",
+    "Back": "Назад",
+    "Role has been updated successfully!": "Роль успешно обновлена!",
+    "Role has been deleted successfully": "Роль успешно удалена"
 
 }
