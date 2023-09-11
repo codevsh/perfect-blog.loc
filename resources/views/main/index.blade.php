@@ -30,7 +30,7 @@
                     <p class="lead my-3" style="color: #d63384;">Multiple lines of text that form the lede, informing new
                         readers quickly and
                         efficiently about what’s most interesting in this post’s contents.</p>
-                    <p class="lead mb-0"><a href="#" class="text-white fw-bold">Continue reading...</a></p>
+                    <p class="lead mb-0"><a href="#" class="text-white fw-bold">{{ __('Continue reading')}}...</a></p>
                 </div>
             </div>
 
@@ -44,7 +44,7 @@
                             <div class="mb-1 text-muted">Nov 12</div>
                             <p class="card-text mb-auto">This is a wider card with supporting text below as a natural
                                 lead-in to additional content.</p>
-                            <a href="#" class="stretched-link">Continue reading</a>
+                            <a href="#" class="stretched-link">{{ __('Continue reading')}}</a>
                         </div>
                         <div class="col-auto d-none d-lg-block">
                             <img src="{{ asset('front/images/small-posts/image.png') }}" alt="">
@@ -60,7 +60,7 @@
                             <div class="mb-1 text-muted">Nov 11</div>
                             <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to
                                 additional content.</p>
-                            <a href="#" class="stretched-link">Continue reading</a>
+                            <a href="#" class="stretched-link">{{ __('Continue reading')}}</a>
                         </div>
                         <div class="col-auto d-none d-lg-block">
                             <img src="{{ asset('front/images/small-posts/image-1.png') }}" alt="">
@@ -100,7 +100,7 @@
                                     nulla ullamcorper
                                     velit massa turpis.</p>
                             </div>
-                            <a href="single-post.html" class="btn-main">Continue reading</a>
+                            <a href="single-post.html" class="btn-main">{{ __('Continue reading')}}</a>
                         </div>
                     </article>
 
@@ -130,7 +130,7 @@
                                     nulla ullamcorper
                                     velit massa turpis.</p>
                             </div>
-                            <a href="single-post.html" class="btn-main">Continue reading</a>
+                            <a href="single-post.html" class="btn-main">{{ __('Continue reading')}}</a>
                         </div>
                     </article>
 
@@ -160,7 +160,7 @@
                                     nulla ullamcorper
                                     velit massa turpis.</p>
                             </div>
-                            <a href="single-post.html" class="btn-main">Continue reading</a>
+                            <a href="single-post.html" class="btn-main">{{ __('Continue reading')}}</a>
                         </div>
                     </article>
                     <style>
@@ -217,7 +217,7 @@
                                         nulla ullamcorper
                                         velit massa turpis.</p>
                                 </div>
-                                <a href="single-post.html" class="btn-main">Continue reading</a>
+                                <a href="single-post.html" class="btn-main">{{ __('Continue reading')}}</a>
                             </div>
                         </article>
                         <article class="blog-post mb-4">
@@ -247,7 +247,7 @@
                                         nulla ullamcorper
                                         velit massa turpis.</p>
                                 </div>
-                                <a href="single-post.html" class="btn-main">Continue reading</a>
+                                <a href="single-post.html" class="btn-main">{{ __('Continue reading')}}</a>
                             </div>
                         </article>
                         <article class="blog-post mb-4">
@@ -277,7 +277,7 @@
                                         nulla ullamcorper
                                         velit massa turpis.</p>
                                 </div>
-                                <a href="single-post.html" class="btn-main">Continue reading</a>
+                                <a href="single-post.html" class="btn-main">{{ __('Continue reading')}}</a>
                             </div>
                         </article>
                         <article class="blog-post mb-4">
@@ -307,7 +307,7 @@
                                         nulla ullamcorper
                                         velit massa turpis.</p>
                                 </div>
-                                <a href="single-post.html" class="btn-main">Continue reading</a>
+                                <a href="single-post.html" class="btn-main">{{ __('Continue reading')}}</a>
                             </div>
                         </article>
                         <article class="blog-post mb-4">
@@ -337,7 +337,7 @@
                                         nulla ullamcorper
                                         velit massa turpis.</p>
                                 </div>
-                                <a href="single-post.html" class="btn-main">Continue reading</a>
+                                <a href="single-post.html" class="btn-main">{{ __('Continue reading')}}</a>
                             </div>
                         </article>
                     </div>

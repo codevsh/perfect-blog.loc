@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Login')
+@section('title', 'Reset-Password')
 @section('content')
 
     <section class="signin-page account">
@@ -8,10 +8,10 @@
                 <div class="col-md-6 offset-md-3">
                     <div class="block text-center">
                         <div class="logo text-center">
-                            <a href="{{ route('main.index') }}">{{ config('app.name') }}</a>
+                            <a href="{{ route('main.index', app()->getLocale()) }}">{{ config('app.name') }}</a>
                         </div>
                         <h2 class="text-center">{{ __('Reset Password') }}</h2>
-                        <form class="text-left clearfix" action="{{ route('password.update') }}" method="Post">
+                        <form class="text-left clearfix" action="{{ route('password.update', app()->getLocale()) }}" method="Post">
                             @csrf
                             <input type="hidden" name="token" value="{{ $request->token }}">
                             <div class="form-group mb-3">
@@ -35,7 +35,7 @@
 
                             </div>
                             <div class="text-center">
-                                <button type="submit" class="btn-main text-center mb-3">{{ __('Reset') }}</button>
+                                <button type="submit" class="btn-main text-center mb-3">{{ __('Reset Password') }}</button>
                             </div>
                         </form>
                     </div>

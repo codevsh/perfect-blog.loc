@@ -8,7 +8,7 @@
                 <div class="col-md-6 offset-md-3">
                     <div class="block text-center">
                         <div class="logo text-center">
-                            <a href="{{ route('main.index') }}">{{ config('app.name') }}</a>
+                            <a href="{{ route('main.index', app()->getLocale()) }}">{{ config('app.name') }}</a>
                         </div>
                         <h2 class="text-center">{{ __('Forgot your password?') }}</h2>
                         @if (session('status'))
@@ -16,7 +16,7 @@
                           {{ session('status') }}
                         </div>
                         @endif
-                        <form class="text-left clearfix" action="{{ route('password.request') }}" method="Post">
+                        <form class="text-left clearfix" action="{{ route('password.request', app()->getLocale()) }}" method="Post">
                             @csrf
                             <div class="form-group mb-3">
                                 <input type="email" class="form-control @error('email') border-danger @enderror"

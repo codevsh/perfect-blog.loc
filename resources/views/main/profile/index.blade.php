@@ -27,11 +27,11 @@
                                     <span class="info-box-icon"><i class="far fa-thumbs-up"></i></span>
 
                                     <div class="info-box-content">
-                                        <span class="info-box-text">{{ __('Liked Posts') }}</span>
+                                        <span class="info-box-text">{{ __('Likes') }}</span>
                                         <span class="info-box-number text-danger">12</span>
 
                                         <span class="progress-description">
-                                            <a href="#" class="btn btn-dark btn-sm mt-3">{{ __('View more') }}</a>
+                                            <a href="#" class="btn btn-dark btn-sm mt-3">{{ __('More details') }}</a>
                                         </span>
                                     </div>
                                     <!-- /.info-box-content -->
@@ -48,7 +48,7 @@
 
                                         <span class="progress-description">
                                             <a href="#"
-                                                class="btn btn-light btn-sm mt-3">{{ __('View more') }}</a>
+                                                class="btn btn-light btn-sm mt-3">{{ __('More details') }}</a>
                                         </span>
                                     </div>
                                     <!-- /.info-box-content -->

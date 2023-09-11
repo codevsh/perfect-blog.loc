@@ -28,7 +28,7 @@ Route::get('/', function () {
     return redirect(app()->getLocale());
 });
 
-Route::group(['prefix' => '{locale}', 'middleware' => 'setlocale'], function () {
+Route::group(['prefix' => '{locale}','where' => ['locale' => '[a-zA-Z]{2}'], 'middleware' => 'setlocale'], function () {
 
     // routes Main
     Route::get('/', [MainController::class, 'index'])->name('main.index');

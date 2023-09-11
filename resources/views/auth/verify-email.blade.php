@@ -17,7 +17,7 @@
                             </div>
                         @else
                             <div class="alert alert-warning">
-                                Please verify your email. We just emailed you verification link.
+                                {{ __('Please verify your email. We just emailed you verification link.') }}
                             </div>
                         @endif
                         <form class="text-left clearfix" action="{{ route('verification.send', app()->getLocale()) }}" method="Post">

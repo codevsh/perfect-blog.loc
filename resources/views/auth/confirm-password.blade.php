@@ -8,13 +8,13 @@
                 <div class="col-md-6 offset-md-3">
                     <div class="block text-center">
                         <div class="logo text-center">
-                            <a href="{{ route('main.index') }}">{{ config('app.name') }}</a>
+                            <a href="{{ route('main.index', app()->getLocale()) }}">{{ config('app.name') }}</a>
                         </div>
                         <h2 class="text-center">{{ __('Confirm Password!') }}</h2>
                         @if (session('status'))
                             <div class="alert alert-success">{{ session('status') }}</div>
                         @endif
-                        <form class="text-left clearfix" action="{{ route('password.confirm') }}" method="Post">
+                        <form class="text-left clearfix" action="{{ route('password.confirm', app()->getLocale()) }}" method="Post">
                             @csrf
 
 

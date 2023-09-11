@@ -49,7 +49,7 @@
                             <div class="text-center">
                                 <button type="submit" class="btn-main text-center mb-3">{{ __('Login') }}</button>
                             </div>
-                            <p>Don't have an account yet? <span><a href="{{ route('register', app()->getLocale()) }}">{{ __('Register') }}</a></span></p>
+                            <p>{{ __("Don't have an account yet?") }} <span><a href="{{ route('register', app()->getLocale()) }}">{{ __('Register') }}</a></span></p>
                         </form>
                     </div>
                 </div>

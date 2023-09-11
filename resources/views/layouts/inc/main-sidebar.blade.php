@@ -1,13 +1,13 @@
 <div class="col-md-4">
     <div class="position-sticky" style="top: 2rem;">
         <div class="p-4 mb-3 bg-light rounded">
-            <h4 class="fst-italic">About</h4>
+            <h4 class="fst-italic">{{ __('About') }}</h4>
             <p class="mb-0">Customize this section to tell your visitors a little bit about your
                 publication, writers, content, or something else entirely. Totally up to you.</p>
         </div>
 
         <div class="p-4">
-            <h4 class="mb-4">Category</h4>
+            <h4 class="mb-4">{{ __('Categories') }}</h4>
             <ul class="nav flex-column p-0">
                 <li class="nav-item px-0">
                     <a class="nav-link text-muted px-0" href="#"><i
@@ -33,7 +33,7 @@
         </div>
 
         <div class="p-4">
-            <h4 class="fst-italic">Tag Cloud</h4>
+            <h4 class="fst-italic">{{ __('Tag Cloud') }}</h4>
             <ol class="list-unstyled">
                 <li><a href="#" class="text-muted">GitHub</a></li>
                 <li><a href="#" class="text-muted">Twitter</a></li>

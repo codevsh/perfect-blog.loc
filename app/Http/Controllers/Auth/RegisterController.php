@@ -31,7 +31,7 @@ class RegisterController extends Controller
 
         Auth::login($user);
 
-        return redirect( RouteServiceProvider::HOME);
+        return redirect(app()->getLocale() . RouteServiceProvider::HOME);
     }
     public function redirectTo()
     {
