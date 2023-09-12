@@ -1,17 +1,17 @@
 @extends('layouts.admin')
-@section('title', 'Admin|Edit Role: '. $role->title)
+@section('title', __('Edit User'))
 @section('content')
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">{{ __('Edit Role') }}</h1>
+                    <h1 class="m-0">{{ __('Edit User') }}</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">{{ __('Home') }}</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('admin.role.index') }}">{{ __('Roles') }}</a></li>
-                        <li class="breadcrumb-item active">{{ __('Edit Role') }}</li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.user.index') }}">{{ __('Users') }}</a></li>
+                        <li class="breadcrumb-item active">{{ __('Edit User') }}</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -25,23 +25,32 @@
 
                     <div class="card">
                         <div class="card-header d-flex">
-                            <a href="{{ route('admin.role.index') }}" class="btn btn-primary btn-sm ml-auto">{{ __('Back') }}</a>
+                            <a href="{{ route('admin.user.index') }}"
+                                class="btn btn-dark btn-sm ml-auto">{{ __('Back') }}</a>
                         </div>
                         <div class="card-body">
-                          <form action="{{ route('admin.role.update', $role->id) }}" method="POST">
-                            @csrf
-                            @method('PATCH')
-                            <div class="form-group">
-                              <label for="title">{{ __('Role Name') }}</label>
-                              <input type="text" name="title" id="title" class="form-control @error('title') border-danger @enderror" autofocus value="{{ $role->title }}">
-                              @error('title')
-                                  <p class="text-danger">{{ $message }}</p>
-                              @enderror
+                            <form action="{{ route('admin.user.update', $user) }}" method="POST">
+                                @csrf
+                                @method('PATCH')
 
-                            </div>
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <label for="role_id">{{ $user->name }} {{ __('Role') }}</label>
+                                        <select class="form-control" name="role_id" id="role_id">
+                                            @foreach ($roles as $role)
+                                                <option {{ $role->id == $user->role_id ? ' selected' : '' }}
+                                                    value="{{ $role->id }}">{{ __( $role->title) }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    @error('role_id')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
 
-                            <button type="submit" class="btn btn-primary">{{ __('Edit role') }}</button>
-                        </form>
+                                </div>
+
+                                <button type="submit" class="btn btn-dark">{{ __('Edit role') }}</button>
+                            </form>
                         </div>
                     </div>
 

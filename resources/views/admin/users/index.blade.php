@@ -44,9 +44,9 @@
                                         <td>{{ __($user->name) }}</td>
                                         <td>{{ __($user->email) }}</td>
                                         <td>{{ __($user->role->title) }}</td>
-                                        <td><a href="{{ route('admin.role.edit', $user) }}" class="btn btn-dark btn-sm">{{ __('Edit') }}</a></td>
+                                        <td><a href="{{ route('admin.user.edit', $user) }}" class="btn btn-dark btn-sm">{{ __('Edit') }}</a></td>
                                         <td>
-                                            <form action="{{ route('admin.role.delete', $user) }}" method="POST">
+                                            <form action="{{ route('admin.user.delete', $user) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger btn-sm">{{ __('Delete') }}</button>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
+use App\Models\Role;
 
 class UserController extends Controller
 {
@@ -14,55 +15,45 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::paginate(15);
         return view('admin.users.index', compact('users'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreUserRequest $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(User $user)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(User $user)
+    public function edit($locale, User $user)
     {
-        //
+        $roles = Role::all();
+        return view('admin.users.edit', compact('user', 'roles'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateUserRequest $request, User $user)
+    public function update($locale, UpdateUserRequest $request, User $user)
     {
-        //
+        $data = $request->validated();
+        $result = $user->update($data);
+        if ($result) {
+            return redirect()->route('admin.user.index')->with('success', trans('Role has been updated successfully!'));
+        } else {
+            return redirect()->back()->with('error', trans('Something went wrong'));
+        }
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $user)
+    public function destroy($locale, User $user)
     {
-        //
+        $result = $user->delete();
+        if ($result) {
+            return redirect()->route('admin.user.index')->with('success', trans('User has been deleted successfully!'));
+        } else {
+            return redirect()->back()->with('error', trans('Something went wrong'));
+        }
     }
 }

@@ -45,6 +45,12 @@
     "Edit Role": "Изменить роль",
     "Back": "Назад",
     "Role has been updated successfully!": "Роль успешно обновлена!",
-    "Role has been deleted successfully!": "Роль успешно удалена!"
+    "Role has been deleted successfully!": "Роль успешно удалена!",
+    "User has been updated successfully!": "Пользователь успешно обновлен!",
+    "User has been deleted successfully!": "Пользователь успешно удален!",
+    "Name": "Имя",
+    "Role": "Роль",
+    "Email": "Электронная почта",
+    "Edit User": "Изменить пользователя"
 
 }

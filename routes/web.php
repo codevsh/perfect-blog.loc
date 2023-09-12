@@ -78,8 +78,6 @@ Route::group(['prefix' => '{locale}','where' => ['locale' => '[a-zA-Z]{2}'], 'mi
             });
             Route::controller(UserController::class)->group(function(){
                 Route::get('user', 'index')->name('admin.user.index');
-                Route::get('user/create', 'create')->name('admin.user.create');
-                Route::post('user', 'store')->name('admin.user.store');
                 Route::get('user/{user}/edit', 'edit')->name('admin.user.edit');
                 Route::patch('user/{user}', 'update')->name('admin.user.update');
                 Route::delete('user/{user}', 'destroy')->name('admin.user.delete');
