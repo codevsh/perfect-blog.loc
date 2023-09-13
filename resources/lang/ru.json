@@ -16,7 +16,7 @@
     "Confirm Password!": "Подтвердите пароль!",
     "Confirm Password": "Подтвердить пароль",
     "Password": "Пароль",
-    "My Profile":"Мой профиль",
+    "My Profile": "Мой профиль",
     "My Actions": "Мои действия",
     "Likes": "Нравится",
     "Comments": "Комментарии",
@@ -51,6 +51,13 @@
     "Name": "Имя",
     "Role": "Роль",
     "Email": "Электронная почта",
-    "Edit User": "Изменить пользователя"
-
+    "Edit User": "Изменить пользователя",
+    "Meta Data": "Метаданные",
+    "Add Category": "Добавить категорию",
+    "Category title": "Название категории",
+    "Slug": "Слаг",
+    "Category meta_title": "Мета_заголовок категории",
+    "Category meta_description": "Мета_описание категории",
+    "Category meta_keywords": "Мета-ключевые слова категории",
+    "Create Category": "Создать категорию"
 }

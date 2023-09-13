@@ -52,6 +52,14 @@
     "Name": "Ім'я",
     "Role": "Роль",
     "Email": "Електронна пошта",
-    "Edit User": "Редагувати користувача"
+    "Edit User": "Редагувати користувача",
+    "Meta Data": "Метадані",
+    "Add Category": "Додати категорію",
+    "Category title": "Назва категорії",
+    "Slug": "Слаг",
+    "Category meta_title": "Мета_заголовок категорії",
+    "Category meta_description": "Мета_опис категорії",
+    "Category meta_keywords": "Мета-ключові слова категорії",
+    "Create Category": "Створити категорію"
 
 }

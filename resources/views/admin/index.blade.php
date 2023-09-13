@@ -24,14 +24,15 @@
                     <!-- small box -->
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3></h3>
+                            <h3>({{ $categories->count() }})</h3>
 
-                            <p>{{ __('Categories') }}</p>
+
+                            <p>{{ __('Categories') }} </p>
                         </div>
                         <div class="icon">
                             <i class="fas fa-th-list"></i>
                         </div>
-                        <a href="#" class="small-box-footer">{{ __('More info') }} <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="{{ route('admin.category.index') }}" class="small-box-footer">{{ __('More info') }} <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -54,14 +55,14 @@
                     <!-- small box -->
                     <div class="small-box bg-warning">
                         <div class="inner">
-                            <h3></h3>
+                            <h3>({{ $users->count() }})</h3>
 
                             <p>{{ __('Users') }}</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-person-add"></i>
                         </div>
-                        <a href="#" class="small-box-footer">{{ __('More info') }} <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="{{ route('admin.user.index') }}" class="small-box-footer">{{ __('More info') }} <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->

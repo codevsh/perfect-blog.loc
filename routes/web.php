@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Main\MainController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Main\ProfileController;
@@ -81,6 +82,14 @@ Route::group(['prefix' => '{locale}','where' => ['locale' => '[a-zA-Z]{2}'], 'mi
                 Route::get('user/{user}/edit', 'edit')->name('admin.user.edit');
                 Route::patch('user/{user}', 'update')->name('admin.user.update');
                 Route::delete('user/{user}', 'destroy')->name('admin.user.delete');
+            });
+            Route::controller(CategoryController::class)->group(function(){
+                Route::get('category', 'index')->name('admin.category.index');
+                Route::get('category/create', 'create')->name('admin.category.create');
+                Route::post('category', 'store')->name('admin.category.store');
+                Route::get('category/{category}/edit', 'edit')->name('admin.category.edit');
+                Route::patch('category/{category}', 'update')->name('admin.category.update');
+                Route::delete('category/{category}', 'destroy')->name('admin.category.delete');
             });
         });
     });
