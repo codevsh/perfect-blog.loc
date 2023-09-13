@@ -1,4 +1,3 @@
-    <div class="form-group">
         <div class="card-body">
             <form wire:submit.prevent='store_form' method="POST">
 
@@ -62,4 +61,3 @@
                 <button type="submit" class="btn btn-dark">{{ __('Create Category') }}</button>
             </form>
         </div>
-    </div>

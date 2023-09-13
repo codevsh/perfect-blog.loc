@@ -87,9 +87,9 @@ Route::group(['prefix' => '{locale}','where' => ['locale' => '[a-zA-Z]{2}'], 'mi
                 Route::get('category', 'index')->name('admin.category.index');
                 Route::get('category/create', 'create')->name('admin.category.create');
                 Route::post('category', 'store')->name('admin.category.store');
-                Route::get('category/{category}/edit', 'edit')->name('admin.category.edit');
-                Route::patch('category/{category}', 'update')->name('admin.category.update');
-                Route::delete('category/{category}', 'destroy')->name('admin.category.delete');
+                Route::get('category/{slug}/edit', 'edit')->name('admin.category.edit');
+                Route::patch('category/{slug}', 'update')->name('admin.category.update');
+                Route::delete('category/{slug}', 'destroy')->name('admin.category.delete');
             });
         });
     });

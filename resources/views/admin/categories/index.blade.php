@@ -49,9 +49,9 @@
                                         <td>{{ __($category->meta_title) }}</td>
                                         <td>{{ __($category->meta_description) }}</td>
                                         <td>{{ __($category->meta_keywords) }}</td>
-                                        <td><a href="{{ route('admin.category.edit', $category) }}" class="btn btn-dark btn-sm">{{ __('Edit') }}</a></td>
+                                        <td><a href="{{ route('admin.category.edit', $category->slug) }}" class="btn btn-dark btn-sm">{{ __('Edit') }}</a></td>
                                         <td>
-                                            <form action="{{ route('admin.category.delete', $category) }}" method="POST">
+                                            <form action="{{ route('admin.category.delete', $category->slug) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger btn-sm">{{ __('Delete') }}</button>
