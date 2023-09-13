@@ -30,6 +30,11 @@
     <link rel="stylesheet" href="{{ asset('back/plugins/daterangepicker/daterangepicker.css') }}">
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('back/plugins/summernote/summernote-bs4.min.css') }}">
+    <style>
+        body {
+            font-size: 14px !important;
+        }
+    </style>
     @livewireStyles
 
 </head>

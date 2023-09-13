@@ -29,10 +29,10 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCategoryRequest $request)
-    {
-        dd($request->all());
-    }
+    // public function store(StoreCategoryRequest $request)
+    // {
+    //     // dd($request->all());
+    // }
 
     /**
      * Display the specified resource.

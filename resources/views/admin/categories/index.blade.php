@@ -45,6 +45,10 @@
                                     <tr>
                                         <td scope="row">{{ $category->id }}</td>
                                         <td>{{ __($category->title) }}</td>
+                                        <td>{{ __($category->slug) }}</td>
+                                        <td>{{ __($category->meta_title) }}</td>
+                                        <td>{{ __($category->meta_description) }}</td>
+                                        <td>{{ __($category->meta_keywords) }}</td>
                                         <td><a href="{{ route('admin.category.edit', $category) }}" class="btn btn-dark btn-sm">{{ __('Edit') }}</a></td>
                                         <td>
                                             <form action="{{ route('admin.category.delete', $category) }}" method="POST">
