@@ -59,5 +59,9 @@
     "Category meta_title": "Мета_заголовок категории",
     "Category meta_description": "Мета_описание категории",
     "Category meta_keywords": "Мета-ключевые слова категории",
-    "Create Category": "Создать категорию"
+    "Create Category": "Создать категорию",
+    "Category has been created successfully!": "Категория успешно создана!",
+    "Edit Category": "Изменить категорию",
+    "Category has been edited successfully!": "Категория успешно отредактирована!",
+    "Category has been deleted successfully!": "Категория успешно удалена!"
 }

@@ -26,29 +26,55 @@ class CategoryController extends Controller
         return view('admin.categories.create');
     }
 
+    public function store($locale, StoreCategoryRequest $request)
+    {
+        $data = $request->validated();
+        $result = Category::create($data);
 
+        if ($result) {
+            return redirect()->route('admin.category.index', app()->getLocale())->with('success', trans('Category has been created successfully!'));
+        } else {
+            return back()->with('error', trans('Something went wrong'));
+        }
+    }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($locale, Category $category)
+    public function edit($locale, $slug)
     {
+        $category = Category::where('slug', $slug)->first();
         return view('admin.categories.edit', compact('category'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCategoryRequest $request, Category $category)
+    public function update($locale, UpdateCategoryRequest $request, $slug)
     {
-        //
+        $category = Category::where('slug', $slug)->firstOrFail();
+        // dd($category->slug);
+        $data = $request->validated();
+        $result = $category->update($data);
+        if ($result) {
+            return redirect()->route('admin.category.index')->with('success', trans('Category has been edited successfully!'));
+        } else {
+            return back()->with('error', trans('Something went wrong'));
+        }
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Category $category)
+    public function destroy($locale, $slug)
     {
-        //
+        $category = Category::where('slug', $slug)->firstOrFail();
+        $result = $category->delete();
+        if ($result) {
+            return redirect()->route('admin.category.index')->with('success', trans('Category has been deleted successfully!'));
+        } else {
+            return back()->with('error', trans('Something went wrong'));
+        }
     }
 }

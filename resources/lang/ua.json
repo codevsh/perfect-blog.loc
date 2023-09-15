@@ -60,6 +60,10 @@
     "Category meta_title": "Мета_заголовок категорії",
     "Category meta_description": "Мета_опис категорії",
     "Category meta_keywords": "Мета-ключові слова категорії",
-    "Create Category": "Створити категорію"
+    "Create Category": "Створити категорію",
+    "Category has been created successfully!": "Категорію успішно створено!",
+    "Edit Category": "Редагувати категорію",
+    "Category has been edited successfully!": "Категорію успішно відредаговано!",
+    "Category has been deleted successfully!": "Категорію успішно видалено!"
 
 }
