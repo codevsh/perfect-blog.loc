@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Main\ProfileController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -90,6 +91,14 @@ Route::group(['prefix' => '{locale}','where' => ['locale' => '[a-zA-Z]{2}'], 'mi
                 Route::get('category/{slug}/edit', 'edit')->name('admin.category.edit');
                 Route::patch('category/{slug}', 'update')->name('admin.category.update');
                 Route::delete('category/{slug}', 'destroy')->name('admin.category.delete');
+            });
+            Route::controller(TagController::class)->group(function(){
+                Route::get('tag', 'index')->name('admin.tag.index');
+                Route::get('tag/create', 'create')->name('admin.tag.create');
+                Route::post('tag', 'store')->name('admin.tag.store');
+                Route::get('tag/{slug}/edit', 'edit')->name('admin.tag.edit');
+                Route::patch('tag/{slug}', 'update')->name('admin.tag.update');
+                Route::delete('tag/{slug}', 'destroy')->name('admin.tag.delete');
             });
         });
     });

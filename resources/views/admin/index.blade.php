@@ -40,14 +40,14 @@
                     <!-- small box -->
                     <div class="small-box bg-success">
                         <div class="inner">
-                            <h3></h3>
+                            <h3>({{ $tags->count() }})</h3>
 
                             <p>{{ __('Tags') }}</p>
                         </div>
                         <div class="icon">
                             <i class="fas fa-tag"></i>
                         </div>
-                        <a href="#" class="small-box-footer">{{ __('More info') }} <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="{{ route('admin.tag.index') }}" class="small-box-footer">{{ __('More info') }} <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->

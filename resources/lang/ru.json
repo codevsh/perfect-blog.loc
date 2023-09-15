@@ -63,5 +63,19 @@
     "Category has been created successfully!": "Категория успешно создана!",
     "Edit Category": "Изменить категорию",
     "Category has been edited successfully!": "Категория успешно отредактирована!",
-    "Category has been deleted successfully!": "Категория успешно удалена!"
+    "Category has been deleted successfully!": "Категория успешно удалена!",
+    "Tags not found": "Теги не найдены",
+    "Categories not found": "Категории не найдены",
+    "Users not found": "Пользователи не найдены",
+    "Add Tag": "Добавить тег",
+    "Tag title": "Название тега",
+    "Tag meta_title": "Мета_заголовок тега",
+    "Tag meta_description": "Мета_описание тега",
+    "Tag meta_keywords": "Мета-ключевые слова тега",
+    "Create Tag": "Создать тег",
+    "Tag has been created successfully!": "Тег успешно создан!",
+    "Edit Tag": "Редагувати Тег",
+    "Tag has been edited successfully!": "Тег успешно отредактирован!",
+    "Tag has been deleted successfully!": "Тег успешно удален!"
+
 }

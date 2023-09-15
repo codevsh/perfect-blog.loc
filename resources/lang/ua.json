@@ -64,6 +64,19 @@
     "Category has been created successfully!": "Категорію успішно створено!",
     "Edit Category": "Редагувати категорію",
     "Category has been edited successfully!": "Категорію успішно відредаговано!",
-    "Category has been deleted successfully!": "Категорію успішно видалено!"
+    "Category has been deleted successfully!": "Категорію успішно видалено!",
+    "Tags not found": "Теги не знайдено",
+    "Categories not found": "Категорії не знайдено",
+    "Users not found": "Користувачів не знайдено",
+    "Add Tag": "Додати тег",
+    "Tag title": "Назва тега",
+    "Tag meta_title": "Мета_заголовок тега",
+    "Tag meta_description": "Мета_опис тега",
+    "Tag meta_keywords": "Мета-ключові слова тега",
+    "Create Tag": "Створити тег",
+    "Tag has been created successfully!": "Тег успішно створено!",
+    "Edit Tag": "Редагувати Тег",
+    "Tag has been edited successfully!": "Тег успішно відредаговано!",
+    "Tag has been deleted successfully!": "Тег успішно видалено!"
 
 }
