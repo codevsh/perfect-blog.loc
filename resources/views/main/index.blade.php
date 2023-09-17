@@ -212,7 +212,7 @@
                                             {!! mb_strimwidth($article->description, 0, 300, ' (...)') !!}
                                         </p>
                                     </div>
-                                    <a href="{{ route('main.show', $article->slug) }}" class="btn-main">{{ __('Continue reading') }}</a>
+                                    <a href="#" class="btn-main">{{ __('Continue reading') }}</a>
                                 </div>
                             </article>
                         @endforeach
