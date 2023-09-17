@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Main\MainController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\TagController;
@@ -99,6 +100,15 @@ Route::group(['prefix' => '{locale}','where' => ['locale' => '[a-zA-Z]{2}'], 'mi
                 Route::get('tag/{slug}/edit', 'edit')->name('admin.tag.edit');
                 Route::patch('tag/{slug}', 'update')->name('admin.tag.update');
                 Route::delete('tag/{slug}', 'destroy')->name('admin.tag.delete');
+            });
+            Route::controller(ArticleController::class)->group(function(){
+                Route::get('article', 'index')->name('admin.article.index');
+                Route::get('article/create', 'create')->name('admin.article.create');
+                Route::post('article', 'store')->name('admin.article.store');
+                Route::get('article/{slug}', 'show')->name('admin.article.show');
+                Route::get('article/{slug}/edit', 'edit')->name('admin.article.edit');
+                Route::patch('article/{slug}', 'update')->name('admin.article.update');
+                Route::delete('article/{slug}', 'destroy')->name('admin.article.delete');
             });
         });
     });

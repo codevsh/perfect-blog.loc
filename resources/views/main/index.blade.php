@@ -190,172 +190,38 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8">
-                        <article class="blog-post mb-4">
-                            <div class="post-card">
-                                <img class="card-img-top" src="{{ asset('front/images/Blog/Rectangle 5.png') }}"
-                                    alt="">
-                                <h2>How to code with PHP</h2>
-                                <ul class="meta-data">
-                                    <li><i class="fas fa-calendar"></i> <a href="#">15 June 2023</a></li>
-                                    <li><i class="fas fa-user"></i> <a href="#">Posted by John Doe</a></li>
-                                    <li><i class="fas fa-tag"></i>
-                                        <a href="#">PHP</a>,
-                                        <a href="#">Laravel</a>,
-                                        <a href="#">Livewire</a>
-                                    </li>
-                                    <li><i class="fas fa-comments"></i> 12</li>
-                                </ul>
-                                <div class="description">
-                                    <p>Lorem ipsum dolor sit amet consectetur. Vitae et eget mattis augue tortor. Nisi duis
-                                        proin molestie a
-                                        id quis varius. Habitant aenean sit cras ac nibh. Sit in aliquet pretium magna.
-                                        Purus
-                                        magna ac dui
-                                        lobortis habitant eget. Justo duis fermentum nunc nulla ullamcorper velit massa
-                                        turpis.Sit in aliquet
-                                        pretium magna. Purus magna ac dui lobortis habitant eget. Justo duis fermentum nunc
-                                        nulla ullamcorper
-                                        velit massa turpis.</p>
+                        @foreach ($articles as $article)
+                            <article class="blog-post mb-4">
+                                <div class="post-card">
+                                    <img class="card-img-top" src="{{ Storage::url($article->prev_img) }}" alt="">
+                                    <h2>{{ $article->title }}</h2>
+                                    <ul class="meta-data">
+                                        <li><i class="fas fa-calendar"></i> <a
+                                                href="#">{{ \Carbon\Carbon::parse($article->created_at)->toFormattedDateString() }}</a>
+                                        </li>
+                                        {{-- <li><i class="fas fa-user"></i> <a href="#">Posted by John Doe</a></li> --}}
+                                        <li><i class="fas fa-tag"></i>
+                                            @foreach ($article->tags as $tag)
+                                                <a href="#">{{ $tag->title }}</a>,
+                                            @endforeach
+                                        </li>
+                                        <li><i class="fas fa-comments"></i> 12</li>
+                                    </ul>
+                                    <div class="description">
+                                        <p>
+                                            {!! mb_strimwidth($article->description, 0, 300, ' (...)') !!}
+                                        </p>
+                                    </div>
+                                    <a href="{{ route('main.show', $article->slug) }}" class="btn-main">{{ __('Continue reading') }}</a>
                                 </div>
-                                <a href="single-post.html" class="btn-main">{{ __('Continue reading')}}</a>
-                            </div>
-                        </article>
-                        <article class="blog-post mb-4">
-                            <div class="post-card">
-                                <img class="card-img-top" src="{{ asset('front/images/Blog/Rectangle 5-1.png') }}"
-                                    alt="">
-                                <h2>How to code with PHP</h2>
-                                <ul class="meta-data">
-                                    <li><i class="fas fa-calendar"></i> <a href="#">15 June 2023</a></li>
-                                    <li><i class="fas fa-user"></i> <a href="#">Posted by John Doe</a></li>
-                                    <li><i class="fas fa-tag"></i>
-                                        <a href="#">PHP</a>,
-                                        <a href="#">Laravel</a>,
-                                        <a href="#">Livewire</a>
-                                    </li>
-                                    <li><i class="fas fa-comments"></i> 12</li>
-                                </ul>
-                                <div class="description">
-                                    <p>Lorem ipsum dolor sit amet consectetur. Vitae et eget mattis augue tortor. Nisi duis
-                                        proin molestie a
-                                        id quis varius. Habitant aenean sit cras ac nibh. Sit in aliquet pretium magna.
-                                        Purus
-                                        magna ac dui
-                                        lobortis habitant eget. Justo duis fermentum nunc nulla ullamcorper velit massa
-                                        turpis.Sit in aliquet
-                                        pretium magna. Purus magna ac dui lobortis habitant eget. Justo duis fermentum nunc
-                                        nulla ullamcorper
-                                        velit massa turpis.</p>
-                                </div>
-                                <a href="single-post.html" class="btn-main">{{ __('Continue reading')}}</a>
-                            </div>
-                        </article>
-                        <article class="blog-post mb-4">
-                            <div class="post-card">
-                                <img class="card-img-top" src="{{ asset('front/images/Blog/Rectangle 5-2.png') }}"
-                                    alt="">
-                                <h2>How to code with PHP</h2>
-                                <ul class="meta-data">
-                                    <li><i class="fas fa-calendar"></i> <a href="#">15 June 2023</a></li>
-                                    <li><i class="fas fa-user"></i> <a href="#">Posted by John Doe</a></li>
-                                    <li><i class="fas fa-tag"></i>
-                                        <a href="#">PHP</a>,
-                                        <a href="#">Laravel</a>,
-                                        <a href="#">Livewire</a>
-                                    </li>
-                                    <li><i class="fas fa-comments"></i> 12</li>
-                                </ul>
-                                <div class="description">
-                                    <p>Lorem ipsum dolor sit amet consectetur. Vitae et eget mattis augue tortor. Nisi duis
-                                        proin molestie a
-                                        id quis varius. Habitant aenean sit cras ac nibh. Sit in aliquet pretium magna.
-                                        Purus
-                                        magna ac dui
-                                        lobortis habitant eget. Justo duis fermentum nunc nulla ullamcorper velit massa
-                                        turpis.Sit in aliquet
-                                        pretium magna. Purus magna ac dui lobortis habitant eget. Justo duis fermentum nunc
-                                        nulla ullamcorper
-                                        velit massa turpis.</p>
-                                </div>
-                                <a href="single-post.html" class="btn-main">{{ __('Continue reading')}}</a>
-                            </div>
-                        </article>
-                        <article class="blog-post mb-4">
-                            <div class="post-card">
-                                <img class="card-img-top" src="{{ asset('front/images/Blog/Rectangle 5-3.png') }}"
-                                    alt="">
-                                <h2>How to code with PHP</h2>
-                                <ul class="meta-data">
-                                    <li><i class="fas fa-calendar"></i> <a href="#">15 June 2023</a></li>
-                                    <li><i class="fas fa-user"></i> <a href="#">Posted by John Doe</a></li>
-                                    <li><i class="fas fa-tag"></i>
-                                        <a href="#">PHP</a>,
-                                        <a href="#">Laravel</a>,
-                                        <a href="#">Livewire</a>
-                                    </li>
-                                    <li><i class="fas fa-comments"></i> 12</li>
-                                </ul>
-                                <div class="description">
-                                    <p>Lorem ipsum dolor sit amet consectetur. Vitae et eget mattis augue tortor. Nisi duis
-                                        proin molestie a
-                                        id quis varius. Habitant aenean sit cras ac nibh. Sit in aliquet pretium magna.
-                                        Purus
-                                        magna ac dui
-                                        lobortis habitant eget. Justo duis fermentum nunc nulla ullamcorper velit massa
-                                        turpis.Sit in aliquet
-                                        pretium magna. Purus magna ac dui lobortis habitant eget. Justo duis fermentum nunc
-                                        nulla ullamcorper
-                                        velit massa turpis.</p>
-                                </div>
-                                <a href="single-post.html" class="btn-main">{{ __('Continue reading')}}</a>
-                            </div>
-                        </article>
-                        <article class="blog-post mb-4">
-                            <div class="post-card">
-                                <img class="card-img-top" src="{{ asset('front/images/Blog/Rectangle 5-4.png') }}"
-                                    alt="">
-                                <h2>How to code with PHP</h2>
-                                <ul class="meta-data">
-                                    <li><i class="fas fa-calendar"></i> <a href="#">15 June 2023</a></li>
-                                    <li><i class="fas fa-user"></i> <a href="#">Posted by John Doe</a></li>
-                                    <li><i class="fas fa-tag"></i>
-                                        <a href="#">PHP</a>,
-                                        <a href="#">Laravel</a>,
-                                        <a href="#">Livewire</a>
-                                    </li>
-                                    <li><i class="fas fa-comments"></i> 12</li>
-                                </ul>
-                                <div class="description">
-                                    <p>Lorem ipsum dolor sit amet consectetur. Vitae et eget mattis augue tortor. Nisi duis
-                                        proin molestie a
-                                        id quis varius. Habitant aenean sit cras ac nibh. Sit in aliquet pretium magna.
-                                        Purus
-                                        magna ac dui
-                                        lobortis habitant eget. Justo duis fermentum nunc nulla ullamcorper velit massa
-                                        turpis.Sit in aliquet
-                                        pretium magna. Purus magna ac dui lobortis habitant eget. Justo duis fermentum nunc
-                                        nulla ullamcorper
-                                        velit massa turpis.</p>
-                                </div>
-                                <a href="single-post.html" class="btn-main">{{ __('Continue reading')}}</a>
-                            </div>
-                        </article>
+                            </article>
+                        @endforeach
                     </div>
 
                     @include('layouts.inc.main-sidebar')
                 </div>
                 <nav class="my-5">
-                    <ul class="pagination justify-content-center">
-                        <li class="page-item disabled">
-                            <a class="page-link">Previous</a>
-                        </li>
-                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">Next</a>
-                        </li>
-                    </ul>
+                    {{ $articles->links() }}
                 </nav>
             </div>
         </section>

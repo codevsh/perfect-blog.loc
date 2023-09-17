@@ -70,14 +70,14 @@
                     <!-- small box -->
                     <div class="small-box bg-danger">
                         <div class="inner">
-                            <h3></h3>
+                            <h3>({{ $articles->count() }})</h3>
 
-                            <p>{{ __('Posts') }}</p>
+                            <p>{{ __('Articles') }}</p>
                         </div>
                         <div class="icon">
                             <i class="fas fa-file"></i>
                         </div>
-                        <a href="#" class="small-box-footer">{{ __('More info') }} <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="{{ route('admin.article.index') }}" class="small-box-footer">{{ __('More info') }} <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->

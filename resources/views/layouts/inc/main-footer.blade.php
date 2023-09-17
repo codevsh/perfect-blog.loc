@@ -34,7 +34,7 @@
     </div>
 </footer> --}}
 
-<footer class="footer text-center">
+<footer class="footer text-center bg-light">
     <div class="container">
         <div class="row col-md-12">
             <div class="social-icons">

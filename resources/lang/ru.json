@@ -76,6 +76,20 @@
     "Tag has been created successfully!": "Тег успешно создан!",
     "Edit Tag": "Редагувати Тег",
     "Tag has been edited successfully!": "Тег успешно отредактирован!",
-    "Tag has been deleted successfully!": "Тег успешно удален!"
+    "Tag has been deleted successfully!": "Тег успешно удален!",
+    "Look": "Смотреть",
+    "Image": "Изображение",
+    "Title": "Название",
+    "Category": "Категория",
+    "Description": "Описание",
+    "meta_title": "Мета_заголовок",
+    "meta_description": "Мета_описание",
+    "meta_keywords": "Мета_ключевые слова",
+    "Add Article": "Добавить статью",
+    "Preview Image": "Предварительный просмотр изображения",
+    "Main Image": "Основное изображение",
+    "Create": "Создать",
+
+    "Select a tags": "Выбрать теги"
 
 }

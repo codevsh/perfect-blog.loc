@@ -77,6 +77,19 @@
     "Tag has been created successfully!": "Тег успішно створено!",
     "Edit Tag": "Редагувати Тег",
     "Tag has been edited successfully!": "Тег успішно відредаговано!",
-    "Tag has been deleted successfully!": "Тег успішно видалено!"
+    "Tag has been deleted successfully!": "Тег успішно видалено!",
+    "Look": "Подивіться",
+    "Image": "Зображення",
+    "Title": "Назва",
+    "Category": "Категорія",
+    "Description": "Опис",
+    "meta_title": "Мета_заголовок",
+    "meta_description": "Мета_опис",
+    "meta_keywords": "Мета_ключові слова",
+    "Add Article": "Додати статтю",
+    "Preview Image": "Попередній перегляд зображення",
+    "Main Image": "Головне зображення",
+    "Create": "Створити",
+    "Select a Tags": "Виберіть Теги"
 
 }
