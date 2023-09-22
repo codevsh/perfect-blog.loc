@@ -60,9 +60,9 @@
                         </div>
                     </div>
                 </div>
-                {{-- <div class="row d-flex justify-content-end">
+                <div class="row d-flex justify-content-end">
                     @livewire('liked-post', [$article])
-                </div> --}}
+                </div>
             </div>
         </section>
         <section class="related-posts my-3">

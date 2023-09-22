@@ -10,8 +10,8 @@ use App\Livewire\ArticleDataComponent;
 
 class CommentComponent extends Component
 {
-    public $article, $user_id, $article_id, $comment_id, $content, $comment_edited, $edit_content, $edit_id;
-   public $edit = false;
+    public $article, $user_id, $article_id, $comment_id, $content, $comment_edited, $edit_content, $edit_id, $comment;
+    public $view_edit = false;
 
     public function mount($article)
     {
@@ -46,10 +46,11 @@ class CommentComponent extends Component
         }
 
     }
-    public function edit_comment($comment_id, $content)
+    public function edit_comment($comment_id)
     {
         $comment = Comment::findOrFail($comment_id);
-        $this->edit = true;
+        $this->comment_id = $comment->id;
+        $this->view_edit = true;
         $this->edit_content = $comment->content;
     }
     public function update_comment($comment_id)
@@ -62,7 +63,7 @@ class CommentComponent extends Component
         $result = $comment->save();
         if ($result) {
             $this->resetFields();
-            $this->edit = false;
+            $this->view_edit = false;
             $this->dispatch('commented');
             $this->dispatch('countComments')->to(ArticleDataComponent::class);
             session()->flash('success', trans('Comment has been updated successfully'));
@@ -84,6 +85,10 @@ class CommentComponent extends Component
             session()->flash('error', trans('Something went wrong'));
         }
 
+    }
+    public function close()
+    {
+        $this->view_edit = false;
     }
     public function render()
     {

@@ -62,26 +62,30 @@
                                                 <a href="#" class="btn btn-secondary btn-sm mr-3"
                                                     wire:click.prevent='edit_comment({{ $comment->id }})'>{{ __('Edit') }}</a>
                                                 <a href="#" class="btn btn-danger btn-sm mr-3"
-                                                    wire:click.prevent='deleteComment({{ $comment->id }})'>{{ __('Delete') }}
+                                                    wire:click.prevent='deleteComment({{ $comment }})'>{{ __('Delete') }}
                                                     <i class="fas fa-times"></i></a>
                                             @endif
                                         </div>
                                     </div>
                                     <div class="user-comment-content py-3">
-                                        @if ($edit !== true)
-                                            <p class="fst-italic text-dark">
-                                                {{ $comment->content }}
-                                            </p>
-                                        @else
+                                        @if ($view_edit && $comment_id == $comment->id)
                                             <form wire:submit.prevent='update_comment({{ $comment->id }})'>
                                                 <div class="form-control mb-3">
                                                     <textarea class="form-control" rows="2" wire:model='edit_content'></textarea>
                                                 </div>
                                                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}"
                                                     wire:model='user_id'>
-                                                <button type="submit"
-                                                    class="btn btn-primary">{{ __('Update') }}</button>
+                                                <button type="submit" class="btn btn-primary">
+                                                    {{ __('Update') }}
+                                                </button>
+                                                <button type="button" class="btn btn-dark" wire:click='close'>
+                                                    {{ __('Close') }}
+                                                </button>
                                             </form>
+                                        @else
+                                            <p class="fst-italic text-dark">
+                                                {{ $comment->content }}
+                                            </p>
                                         @endif
                                     </div>
                                 </div>
@@ -93,19 +97,23 @@
                     <div class="section-header border-bottom my-3">
                         <h3>{{ __('Leave you Comment') }}</h3>
                     </div>
-                    <form wire:submit.prevent='StoreComment'>
-                        <div class="form-group mb-3">
-                            <textarea class="form-control @error('content') border-danger @enderror" name="content" id="content" rows="3"
-                                placeholder="{{ __('comment') }}" wire:model='content'>{{ old('content') }}</textarea>
-                            @error('content')
-                                <p class="text-danger">{{ $message }}</p>
-                            @enderror
-                        </div>
-                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" wire:model='user_id'>
+                    @if ($view_edit)
+                       not commented
+                    @else
+                        <form wire:submit.prevent='StoreComment'>
+                            <div class="form-group mb-3">
+                                <textarea class="form-control @error('content') border-danger @enderror" name="content" id="content" rows="3"
+                                    placeholder="{{ __('comment') }}" wire:model='content'>{{ old('content') }}</textarea>
+                                @error('content')
+                                    <p class="text-danger">{{ $message }}</p>
+                                @enderror
+                            </div>
+                            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" wire:model='user_id'>
 
 
-                        <button type="submit" class="btn-main">{{ __('Send Comment') }}</button>
-                    </form>
+                            <button type="submit" class="btn-main">{{ __('Send Comment') }}</button>
+                        </form>
+                    @endif
                 @endauth
                 @guest
                     <p class="mt-3">{{ __('To leave a comment, please') }}
