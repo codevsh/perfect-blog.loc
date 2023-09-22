@@ -216,13 +216,13 @@
                                 </div>
                             </article>
                         @endforeach
+                        <nav class="my-5">
+                            {{ $articles->links('pagination::bootstrap-5') }}
+                        </nav>
                     </div>
 
                     @include('layouts.inc.main-sidebar')
                 </div>
-                <nav class="my-5">
-                    {{ $articles->links() }}
-                </nav>
             </div>
         </section>
 

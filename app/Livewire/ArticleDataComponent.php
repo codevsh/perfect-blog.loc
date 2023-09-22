@@ -2,19 +2,22 @@
 
 namespace App\Livewire;
 
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class ArticleDataComponent extends Component
 {
     public $article, $article_id;
-    protected $listeners = ['countComments' =>'$refresh'];
-    public function mount($article)
+    public $countLikes;
+    public function mount( $article)
     {
         $this->article = $article;
     }
+    #[On('countComments')]
+    #[On('countLikes')]
     public function render()
     {
-        $countComments = $this->article->comments->count();
+        // $countComments = $this->article->comments->count();
         return view('livewire.article-data-component');
     }
 }

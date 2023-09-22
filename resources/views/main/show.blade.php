@@ -61,7 +61,7 @@
                     </div>
                 </div>
                 <div class="row d-flex justify-content-end">
-                    @livewire('liked-post', [$article])
+                    @livewire('liked-article', [$article])
                 </div>
             </div>
         </section>

@@ -24,7 +24,7 @@
             <h3 class="mb-4">{{ __('Tag Cloud') }}</h3>
             <div class="tag-block">
                 @foreach ($tags as $tag)
-                <a class="tag-link text-decoration-none
+                <a class="tag-link text-decoration-none mb-3
                 {{ (request()->segment(1) == 'show-tag' && request()->segment(2) == $tag->id) ? ' active': '' }}
                 " href="#">
                     <span class="tag">{{ $tag->title }}</span>
