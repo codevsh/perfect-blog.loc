@@ -39,7 +39,6 @@ class CommentComponent extends Component
         if ($result) {
             session()->flash('success', trans('You have successfully commented on the post'));
             $this->resetFields();
-            // $this->emit('commented');
             $this->dispatch('countComments')->to(ArticleDataComponent::class);
         } else {
             session()->flash('error', 'Something went wrong!');
@@ -74,7 +73,7 @@ class CommentComponent extends Component
     }
     public function deleteComment($comment_id)
     {
-        $comment = Comment::find($comment_id);
+        $comment = Comment::findOrFail($comment_id);
         $result = $comment->delete();
         if ($result) {
             $this->resetFields();

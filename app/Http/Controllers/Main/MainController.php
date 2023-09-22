@@ -12,7 +12,7 @@ class MainController extends Controller
 {
     public function index()
     {
-        $articles = Article::paginate(5);
+        $articles = Article::orderBy('id', 'DESC')->paginate(5);
         $categories = Category::all();
         $tags = Tag::all();
         return view('main.index', compact('articles', 'categories', 'tags'));

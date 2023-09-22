@@ -62,7 +62,7 @@
                                                 <a href="#" class="btn btn-secondary btn-sm mr-3"
                                                     wire:click.prevent='edit_comment({{ $comment->id }})'>{{ __('Edit') }}</a>
                                                 <a href="#" class="btn btn-danger btn-sm mr-3"
-                                                    wire:click.prevent='deleteComment({{ $comment }})'>{{ __('Delete') }}
+                                                    wire:click.prevent='deleteComment({{ $comment->id }})'>{{ __('Delete') }}
                                                     <i class="fas fa-times"></i></a>
                                             @endif
                                         </div>

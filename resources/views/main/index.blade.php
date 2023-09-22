@@ -199,13 +199,16 @@
                                         <li><i class="fas fa-calendar"></i> <a
                                                 href="#">{{ \Carbon\Carbon::parse($article->created_at)->toFormattedDateString() }}</a>
                                         </li>
-                                        {{-- <li><i class="fas fa-user"></i> <a href="#">Posted by John Doe</a></li> --}}
+                                        <li><a href="#">
+                                            <i class="fas fa-th-list    "></i>
+                                            {{ $article->category->title }}</a></li>
                                         <li><i class="fas fa-tag"></i>
                                             @foreach ($article->tags as $tag)
                                                 <a href="#">{{ $tag->title }}</a>,
                                             @endforeach
+
                                         </li>
-                                        <li><i class="fas fa-comments"></i> 12</li>
+                                        @livewire('article-data-component', [$article])
                                     </ul>
                                     <div class="description">
                                         <p>
