@@ -17,10 +17,5 @@ class MainController extends Controller
         $tags = Tag::all();
         return view('main.index', compact('articles', 'categories', 'tags'));
     }
-    // public function show($locale, $slug)
-    // {
-    //     $article = Article::where('slug', $slug)->firstOrFail();
-    //     $rarticles = Article::where('category_id', $article->category)->get()->take(4);
-    //     return view('main.show', compact('article', 'rarticles'));
-    // }
+
 }

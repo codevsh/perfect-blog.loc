@@ -17,6 +17,7 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\PasswordConfirmationController;
 use App\Http\Controllers\Auth\EmailVerificationPromtController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
+use App\Http\Controllers\MainSingleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +37,9 @@ Route::get('/', function () {
 Route::group(['prefix' => '{locale}','where' => ['locale' => '[a-zA-Z]{2}'], 'middleware' => 'setlocale'], function () {
 
     // routes Main
+
     Route::get('/', [MainController::class, 'index'])->name('main.index');
+    Route::get('/article/{slug}', MainSingleController::class)->name('main.show');
 
     Route::middleware('guest')->group(function () {
         // register
