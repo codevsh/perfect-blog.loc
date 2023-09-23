@@ -27,11 +27,13 @@
                                     <span class="info-box-icon"><i class="far fa-thumbs-up"></i></span>
 
                                     <div class="info-box-content">
-                                        <span class="info-box-text">{{ __('Likes') }}</span>
-                                        <span class="info-box-number text-danger">12</span>
-
+                                        <p class="info-box-text text-light">{{ __('Likes') }}
+                                            <span class="info-box-number text-danger fw-bold bg-light px-2 py-1 rounded">
+                                                {{ auth()->user()->likedArticle->count() }}
+                                            </span>
+                                        </p>
                                         <span class="progress-description">
-                                            <a href="#" class="btn btn-dark btn-sm mt-3">{{ __('More details') }}</a>
+                                            <a href="{{ route('profile.likes') }}" class="btn btn-dark btn-sm mt-3">{{ __('More details') }}</a>
                                         </span>
                                     </div>
                                     <!-- /.info-box-content -->
@@ -43,12 +45,13 @@
                                     <span class="info-box-icon"><i class="fas fa-comments"></i></span>
 
                                     <div class="info-box-content">
-                                        <span class="info-box-text">{{ __('Comments') }}</span>
-                                        <span class="info-box-number text-danger">20</span>
-
+                                        <p class="info-box-text text-light">{{ __('Comments') }}
+                                            <span class="info-box-number text-danger fw-bold bg-light px-2 py-1 rounded">
+                                                {{ auth()->user()->comments->count() }}
+                                            </span>
+                                        </p>
                                         <span class="progress-description">
-                                            <a href="#"
-                                                class="btn btn-light btn-sm mt-3">{{ __('More details') }}</a>
+                                            <a href="#" class="btn btn-light btn-sm mt-3">{{ __('More details') }}</a>
                                         </span>
                                     </div>
                                     <!-- /.info-box-content -->

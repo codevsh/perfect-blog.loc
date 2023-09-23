@@ -1,23 +1,24 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Main\MainController;
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\Admin\ArticleController;
-use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\TagController;
+use App\Http\Controllers\Main\MainController;
+use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\MainSingleController;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Main\ProfileController;
+use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Profile\LikedController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\PasswordConfirmationController;
 use App\Http\Controllers\Auth\EmailVerificationPromtController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
-use App\Http\Controllers\MainSingleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +35,7 @@ Route::get('/', function () {
     return redirect(app()->getLocale());
 });
 
-Route::group(['prefix' => '{locale}','where' => ['locale' => '[a-zA-Z]{2}'], 'middleware' => 'setlocale'], function () {
+Route::group(['prefix' => '{locale}', 'where' => ['locale' => '[a-zA-Z]{2}'], 'middleware' => 'setlocale'], function () {
 
     // routes Main
 
@@ -61,7 +62,11 @@ Route::group(['prefix' => '{locale}','where' => ['locale' => '[a-zA-Z]{2}'], 'mi
         // logout
         Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
         //profile
-        Route::get('/profile', [ProfileController::class, 'index'])->middleware(['verified', 'password.confirm'])->name('profile');
+        Route::group(['prefix' => 'profile', 'middleware' => ['verified', 'password.confirm']], function () {
+            Route::get('/', [ProfileController::class, 'index'])->name('profile');
+            Route::get('/likes', [LikedController::class, 'index'])->name('profile.likes');
+            Route::delete('/likes/{article}', [LikedController::class, 'destroy'])->name('profile.likes.delete');
+        });
         // confirm-password
         Route::get('/confirm-password', [PasswordConfirmationController::class, 'show'])->name('password.confirm');
         Route::post('/confirm-password', [PasswordConfirmationController::class, 'store']);
@@ -74,7 +79,7 @@ Route::group(['prefix' => '{locale}','where' => ['locale' => '[a-zA-Z]{2}'], 'mi
         // admin
         Route::prefix('admin')->group(function () {
             Route::get('/', [AdminController::class, 'index'])->middleware('verified')->name('admin.index');
-            Route::controller(RoleController::class)->group(function(){
+            Route::controller(RoleController::class)->group(function () {
                 Route::get('role', 'index')->name('admin.role.index');
                 Route::get('role/create', 'create')->name('admin.role.create');
                 Route::post('role', 'store')->name('admin.role.store');
@@ -82,13 +87,13 @@ Route::group(['prefix' => '{locale}','where' => ['locale' => '[a-zA-Z]{2}'], 'mi
                 Route::patch('role/{role}', 'update')->name('admin.role.update');
                 Route::delete('role/{role}', 'destroy')->name('admin.role.delete');
             });
-            Route::controller(UserController::class)->group(function(){
+            Route::controller(UserController::class)->group(function () {
                 Route::get('user', 'index')->name('admin.user.index');
                 Route::get('user/{user}/edit', 'edit')->name('admin.user.edit');
                 Route::patch('user/{user}', 'update')->name('admin.user.update');
                 Route::delete('user/{user}', 'destroy')->name('admin.user.delete');
             });
-            Route::controller(CategoryController::class)->group(function(){
+            Route::controller(CategoryController::class)->group(function () {
                 Route::get('category', 'index')->name('admin.category.index');
                 Route::get('category/create', 'create')->name('admin.category.create');
                 Route::post('category', 'store')->name('admin.category.store');
@@ -96,7 +101,7 @@ Route::group(['prefix' => '{locale}','where' => ['locale' => '[a-zA-Z]{2}'], 'mi
                 Route::patch('category/{slug}', 'update')->name('admin.category.update');
                 Route::delete('category/{slug}', 'destroy')->name('admin.category.delete');
             });
-            Route::controller(TagController::class)->group(function(){
+            Route::controller(TagController::class)->group(function () {
                 Route::get('tag', 'index')->name('admin.tag.index');
                 Route::get('tag/create', 'create')->name('admin.tag.create');
                 Route::post('tag', 'store')->name('admin.tag.store');
@@ -104,7 +109,7 @@ Route::group(['prefix' => '{locale}','where' => ['locale' => '[a-zA-Z]{2}'], 'mi
                 Route::patch('tag/{slug}', 'update')->name('admin.tag.update');
                 Route::delete('tag/{slug}', 'destroy')->name('admin.tag.delete');
             });
-            Route::controller(ArticleController::class)->group(function(){
+            Route::controller(ArticleController::class)->group(function () {
                 Route::get('article', 'index')->name('admin.article.index');
                 Route::get('article/create', 'create')->name('admin.article.create');
                 Route::post('article', 'store')->name('admin.article.store');

@@ -79,13 +79,13 @@
                             <div class="card mb-2">
                                 <img class="card-img-top" src="{{ Storage::url($item->prev_img) }}" alt="Dist Photo 2">
                                 <div class="card-img-overlay d-flex flex-column justify-content-center">
-                                    <a href="{{ route('main.show', [app()->getLocale(), $item]) }}">
+                                    <a href="{{ route('main.show', $item->slug) }}">
                                         <h4 class="card-title text-white mt-5 pt-2">{{ $item->title }}</h4>
                                     </a>
                                     <p class="card-text pb-2 pt-1 text-white">
                                         {{ Str::limit(strip_tags($item->description), 80, ' (...)') }}
                                     </p>
-                                    <a href="{{ route('main.show', [app()->getLocale(), $item]) }}" class="text-white">
+                                    <a href="{{ route('main.show', $item->slug) }}" class="text-white">
                                         {{ \Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</a>
                                 </div>
                             </div>
