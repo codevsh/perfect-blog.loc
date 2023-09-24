@@ -45,8 +45,8 @@
                         <div class="coment-single px-2 py-1 mb-1 border ">
                             <div class="comment-data d-flex">
 
-                                <div class="user-image me-3">
-                                    <img class="img-thumbnail" src="{{ Storage::url($comment->user->profile_image) }}"
+                                <div class="user-image">
+                                    <img class="img-thumbnail w-50" src="{{ Storage::url($comment->user->profile_image) }}"
                                         alt="">
                                 </div>
                                 <div class="content w-100">

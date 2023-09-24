@@ -19,6 +19,7 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\PasswordConfirmationController;
 use App\Http\Controllers\Auth\EmailVerificationPromtController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
+use App\Http\Controllers\Profile\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,8 +65,16 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => '[a-zA-Z]{2}'], 'm
         //profile
         Route::group(['prefix' => 'profile', 'middleware' => ['verified', 'password.confirm']], function () {
             Route::get('/', [ProfileController::class, 'index'])->name('profile');
+            Route::get('/{user}/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+            Route::patch('/{user}', [ProfileController::class, 'update'])->name('profile.update');
+            // likes
             Route::get('/likes', [LikedController::class, 'index'])->name('profile.likes');
             Route::delete('/likes/{article}', [LikedController::class, 'destroy'])->name('profile.likes.delete');
+            // comments
+            Route::get('/comments', [CommentController::class, 'index'])->name('profile.comments');
+            Route::get('/comments/{comment}/edit', [CommentController::class, 'edit'])->name('profile.comments.edit');
+            Route::patch('/comments/{comment}', [CommentController::class, 'update'])->name('profile.comments.update');
+            Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])->name('profile.comments.delete');
         });
         // confirm-password
         Route::get('/confirm-password', [PasswordConfirmationController::class, 'show'])->name('password.confirm');

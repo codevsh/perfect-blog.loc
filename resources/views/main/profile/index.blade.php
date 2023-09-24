@@ -51,7 +51,7 @@
                                             </span>
                                         </p>
                                         <span class="progress-description">
-                                            <a href="#" class="btn btn-light btn-sm mt-3">{{ __('More details') }}</a>
+                                            <a href="{{ route('profile.comments') }}" class="btn btn-light btn-sm mt-3">{{ __('More details') }}</a>
                                         </span>
                                     </div>
                                     <!-- /.info-box-content -->

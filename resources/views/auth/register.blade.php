@@ -46,7 +46,7 @@
                                 <button type="submit" class="btn-main text-center mb-3">{{ __('Register') }}</button>
                             </div>
                         </form>
-                        <p class="mt-20">{{ __('Already registered?') }} <a href="{{ route('login', app()->getLocale()) }}"> {{ __('Login') }}</a></p>
+                        <p class="mt-20">{{ __('Already registered?') }} <a href="{{ route('login') }}"> {{ __('Login') }}</a></p>
                     </div>
                 </div>
             </div>

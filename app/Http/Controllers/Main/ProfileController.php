@@ -17,43 +17,24 @@ class ProfileController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(User $user)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      */
-    public function edit(User $user)
+    public function edit($locale, User $user)
     {
-        //
+        return view('main.profile.edit', compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
+    public function update($locale, Request $request, User $user)
     {
-        //
+        // $data = $request->validate([
+        //     'profile_image' => 'image|max:1024',
+        //     'name' => 'required|string',
+        //     'email' => 'required|string|unique:users,email,' . $user
+        // ]);
+        // $user->profile_image = $data
     }
 
     /**

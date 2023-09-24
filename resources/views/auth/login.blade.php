@@ -19,7 +19,7 @@
 
                             <div class="form-group mb-3">
                                 <input type="email" class="form-control @error('email') border-danger @enderror"
-                                    name="email" placeholder="{{ __('Email') }}" value="{{ old('email') }}">
+                                    name="email" placeholder="{{ __('Email') }}" value="{{ old('email') }}" autofocus>
                                 @error('email')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
@@ -42,14 +42,14 @@
                                     </label>
                                 </div>
                                 <div class="col">
-                                    <a href="{{ route('password.request', app()->getLocale()) }}" class="text-success">{{ __('Forgot your password?') }}</a>
+                                    <a href="{{ route('password.request') }}" class="text-success">{{ __('Forgot your password?') }}</a>
                                 </div>
                             </div>
 
                             <div class="text-center">
                                 <button type="submit" class="btn-main text-center mb-3">{{ __('Login') }}</button>
                             </div>
-                            <p>{{ __("Don't have an account yet?") }} <span><a href="{{ route('register', app()->getLocale()) }}">{{ __('Register') }}</a></span></p>
+                            <p>{{ __("Don't have an account yet?") }} <span><a href="{{ route('register') }}">{{ __('Register') }}</a></span></p>
                         </form>
                     </div>
                 </div>

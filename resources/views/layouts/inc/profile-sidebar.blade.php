@@ -21,15 +21,15 @@
         <h3 class="mb-4">{{ __('My Actions') }}</h3>
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-cog mr-3"></i>
+                <a class="nav-link" href="{{ route('profile.edit', auth()->user()) }}"><i class="fas fa-cog mr-3"></i>
                     {{ __('Settings') }}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="far fa-thumbs-up mr-3"></i>
+                <a class="nav-link" href="{{ route('profile.likes') }}"><i class="far fa-thumbs-up mr-3"></i>
                     {{ __('Likes') }}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-comment mr-3"></i>
+                <a class="nav-link" href="{{ route('profile.comments') }}"><i class="fas fa-comment mr-3"></i>
                     {{ __('Comments') }}</a>
             </li>
 
