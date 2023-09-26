@@ -21,7 +21,7 @@
                             <div class="form-group mb-3">
                                 <input type="password" name="password"
                                     class="form-control @error('password') border-danger @enderror"
-                                    placeholder="{{ __('Password') }}">
+                                    placeholder="{{ __('Password') }}" autofocus>
                                 @error('password')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror

@@ -20,16 +20,19 @@
     <section class="main-content">
         <div class="container">
             <div class="row my-3">
-                <div class="col-md-8">
+                <div class="col-md-12">
                     <div class="container-fluid">
-                        <div class="row">
-                          @livewire('profile.profileForm', ['user' => $user])
+                        <div class="row mb-3">
+                            <div class="col-md-6 mx-auto">
+                                @livewire('profile.profileForm', ['user' => $user])
+                            </div>
                         </div>
                     </div>
                 </div>
 
             </div>
         </div>
+
     </section>
     @include('layouts.inc.main-footer')
 @endsection

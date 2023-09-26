@@ -44,13 +44,11 @@
                         </div> --}}
                         <div class="coment-single px-2 py-1 mb-1 border ">
                             <div class="comment-data d-flex">
-
-                                <div class="user-image">
+                                <div class="user-image w-25">
                                     <img class="img-thumbnail w-50" src="{{ Storage::url($comment->user->profile_image) }}"
                                         alt="">
                                 </div>
                                 <div class="content w-100">
-
                                     <div class="user-comment d-flex justify-content-between w-100 border-bottom">
                                         <div class="user-data">
                                             <h4 class="mb-0 pb-0">{{ $comment->user->name }}</h4>
