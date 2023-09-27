@@ -12,11 +12,14 @@ class MainController extends Controller
 {
     public function index()
     {
-        $articles = Article::orderBy('id', 'DESC')->paginate(5);
+        $articles = Article::orderBy('id', 'DESC');
+        if (request()->has('search')) {
+            $articles = $articles->where('description', 'like', '%' . request()->get('search', '') . '%');
+        }
         $likedArticles = Article::withCount('likedUsers')->orderBy('liked_users_count', 'DESC')->get()->take(4);
         $categories = Category::all();
         $tags = Tag::all();
-        return view('main.index', compact('articles', 'categories', 'tags', 'likedArticles'));
+        return view('main.index', ['articles' => $articles->paginate(5)], compact( 'categories', 'tags', 'likedArticles'));
     }
 
 }

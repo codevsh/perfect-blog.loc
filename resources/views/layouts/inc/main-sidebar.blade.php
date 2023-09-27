@@ -1,6 +1,16 @@
 <div class="col-md-4">
     <div class="position-sticky mb-3" style="top: 2rem;">
         <div class="p-4 mb-3 bg-light rounded">
+            <form action="{{ route('main.index') }}" method="get">
+                <div class="input-group mb-3">
+                    <input type="search" class="form-control bg-white" aria-label="Recipient's username"
+                        aria-describedby="basic-addon2" name="search">
+                    <button class="input-group-text" id="basic-addon2"><i class="fa fa-search"
+                            aria-hidden="true"></i></button>
+                </div>
+            </form>
+        </div>
+        <div class="p-4 mb-3 bg-light rounded">
             <h4 class="fst-italic">{{ __('About') }}</h4>
             <p class="mb-0">{{ __('Your ad could be here.') }}</p>
         </div>
@@ -10,7 +20,8 @@
             <ul class="nav flex-column p-0">
                 @foreach ($categories as $category)
                     <li class="nav-item px-0">
-                        <a class="nav-link text-muted px-0" href="#"><i class="fas fa-angle-right me-3"></i>
+                        <a class="nav-link text-muted px-0" href="{{ route('main.category', $category->slug) }}"><i
+                                class="fas fa-angle-right me-3"></i>
                             {{ $category->title }}
                         </a>
                     </li>
@@ -26,7 +37,7 @@
                     <a class="tag-link text-decoration-none mb-3
                 {{ request()->segment(1) == 'show-tag' && request()->segment(2) == $tag->id ? ' active' : '' }}
                 "
-                        href="#">
+                        href="{{ route('main.tag', $tag->slug) }}">
                         <span class="tag">{{ $tag->title }}</span>
                     </a>
                 @endforeach

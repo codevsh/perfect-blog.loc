@@ -23,7 +23,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header d-flex justify-content-between align-items-center">
-                            <p>{{ __('Articles') }}: {{ $articles->count() }}</p>
+                            <p>{{ __('Articles') }}: {{ $articles->count() }} {{ __('from') }}: {{ $articles->total() }}</p>
                             <a href="{{ route('admin.article.create') }}"
                                 class="btn btn-dark btn-sm ml-auto">{{ __('Add Article') }}</a>
                         </div>
@@ -67,9 +67,13 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+
                             @else
                                 <h4 class="card-title text-center">{{ __('Articles not found') }}</h4>
                             @endif
+                        </div>
+                        <div class="card-footer">
+                            {{ $articles->links('pagination::bootstrap-5') }}
                         </div>
                     </div>
                 </div>

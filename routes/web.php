@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Main\TagFilter;
 use App\Http\Controllers\Admin\TagController;
+use App\Http\Controllers\Main\CategoryFilter;
 use App\Http\Controllers\Main\MainController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
@@ -13,13 +15,13 @@ use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Profile\LikedController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Profile\CommentController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\PasswordConfirmationController;
 use App\Http\Controllers\Auth\EmailVerificationPromtController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
-use App\Http\Controllers\Profile\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +44,8 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => '[a-zA-Z]{2}'], 'm
 
     Route::get('/', [MainController::class, 'index'])->name('main.index');
     Route::get('/article/{slug}', MainSingleController::class)->name('main.show');
+    Route::get('/category/{slug}', [CategoryFilter::class, 'index'])->name('main.category');
+    Route::get('/tag/{slug}', [TagFilter::class, 'index'])->name('main.tag');
 
     Route::middleware('guest')->group(function () {
         // register
