@@ -17,7 +17,7 @@
                     @endif
                     <div class="form-group mb-3">
                         <div class="input-group mb-3">
-                            <input type="file" class="form-control" id="inputGroupFile02" wire:model='new_image'>
+                            <input type="file" class="form-control bg-white" id="inputGroupFile02" wire:model='new_image'>
                             <label class="input-group-text" for="inputGroupFile02">Upload</label>
                         </div>
                     </div>
@@ -25,14 +25,14 @@
 
                     <div class="form-group mb-3">
                         <label for="name">{{ __('Name') }}</label>
-                        <input type="text" class="form-control" wire:model='name'>
+                        <input type="text" class="form-control bg-white" wire:model='name'>
                         @error('name')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="form-group mb-3">
                         <label for="email">{{ __('Email') }}</label>
-                        <input type="text" class="form-control" wire:model='email'>
+                        <input type="text" class="form-control bg-white" wire:model='email'>
                         @error('email')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror

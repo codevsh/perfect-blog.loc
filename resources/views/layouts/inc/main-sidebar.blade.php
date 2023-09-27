@@ -1,10 +1,12 @@
 <div class="col-md-4">
     <div class="position-sticky mb-3" style="top: 2rem;">
         <div class="p-4 mb-3 bg-light rounded">
-            <form action="{{ route('main.index') }}" method="get">
+            <form action="{{ route('main.search') }}" method="get">
+                @csrf
+
                 <div class="input-group mb-3">
                     <input type="search" class="form-control bg-white" aria-label="Recipient's username"
-                        aria-describedby="basic-addon2" name="search">
+                        aria-describedby="basic-addon2" name="search" value="">
                     <button class="input-group-text" id="basic-addon2"><i class="fa fa-search"
                             aria-hidden="true"></i></button>
                 </div>
