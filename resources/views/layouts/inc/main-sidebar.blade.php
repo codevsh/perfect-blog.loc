@@ -46,20 +46,25 @@
             </div>
         </div>
         <div class="widget widget-latest-posts">
-            <h3 class="mb-4">{{ __('Popular Posts') }}</h3>
+            <h3 class="mb-4">{{ __('Popular Articles') }}</h3>
             @foreach ($likedArticles as $item)
                 <div class="row g-0 border rounded overflow-hidden d-flex shadow-sm h-md-250 position-relative mb-3"
                     style="font-size: 13px !imprtant;">
                     <div class="col py-2 px-2 d-flex flex-column position-static">
                         <strong class="d-inline-block mb-1 text-primary">{{ $item->category->title }}</strong>
-                        <h5 class="mb-0">{{ $item->title }}</h5>
+                        <h5 class="mb-0"><a class="text-dark text-decoration-none"
+                                href="{{ route('main.show', $item->slug) }}">{{ $item->title }}</a></h5>
+                        </h5>
                         <div class="mb-1 text-muted">
                             {{ \Carbon\Carbon::parse($item->created_at)->toFormattedDateString() }}</div>
                         {{-- <p class="card-text mb-auto">{!! mb_strimwidth($item->description, 0, 50, '(...)') !!}</p> --}}
                         {{-- <a href="{{ route('main.show', $item) }}" class="stretched-link">{{ __('Continue reading') }}</a> --}}
                     </div>
                     <div class="col d-none d-lg-block">
-                        <img class="img-fluid" src="{{ Storage::url($item->prev_img) }}" alt="{{ $item->title }}">
+                        <a class="text-dark text-decoration-none" href="{{ route('main.show', $item->slug) }}">
+                            <img class="img-fluid" src="{{ Storage::url($item->prev_img) }}"
+                                alt="{{ $item->title }}">
+                        </a>
                     </div>
                 </div>
             @endforeach

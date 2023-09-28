@@ -7,41 +7,7 @@
                 </div>
                 @if ($article->comments->count() > 0)
                     @foreach ($article->comments as $comment)
-                        {{-- <div class="single-post__comment__item border p-3 d-flex">
-                            <div class="single-post__comment__item__pic me-3">
-                                <img src="{{ Storage::url($comment->user->profile_image) }}" alt="">
-                            </div>
-                            <div class="single-post__comment__item__text w-75">
-                                <h5>{{ $comment->user->name }}</h5>
-                                <small class="text-secondary">{{ $comment->created_at->diffForHumans() }}</small>
-                                @if ($edit !== true)
-                                <p >{{ $comment->content }}</p>
-                                @else
-                                    <form wire:submit.prevent='update_comment({{ $comment->id }})'>
-                                        <div class="form-control mb-3">
-                                            <textarea class="form-control" rows="2" wire:model='edit_content'></textarea>
-                                        </div>
-                                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}"
-                                            wire:model='user_id'>
-                                        <button type="submit" class="btn btn-primary">{{ __('Update') }}</button>
-                                    </form>
-                                @endif
-                            </div>
-                            @if (Auth::user() && Auth::user()->id == $comment->user->id)
-                                <ul class="d-flex list-unstyled">
-                                    <li class="ms-3">
-                                        <a href="#" class="btn btn-secondary btn-sm mr-3"
-                                            wire:click.prevent='edit_comment({{ $comment->id }})'>{{ __('Edit') }}</a>
-                                    </li>
-                                    <li class="ms-3">
-                                        <a href="#" class="btn btn-danger btn-sm mr-3"
-                                            wire:click.prevent='deleteComment({{ $comment->id }})'>{{ __('Delete') }}
-                                            <i class="fas fa-times"></i></a>
-                                    </li>
-                                </ul>
-                            @endif
 
-                        </div> --}}
                         <div class="coment-single px-2 py-1 mb-1 border ">
                             <div class="comment-data d-flex">
                                 <div class="user-image w-25">

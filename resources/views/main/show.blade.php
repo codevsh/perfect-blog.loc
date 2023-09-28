@@ -69,7 +69,7 @@
             <div class="container">
                 <div class="row border-top">
                     <div class="col-md-12 py-3">
-                        <h4>{{ __('Related Posts') }}</h4>
+                        <h4>{{ __('Related articles') }}</h4>
                     </div>
                 </div>
                 <div class="row">
