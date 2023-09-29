@@ -51,7 +51,7 @@ class ProfileForm extends Component
             $user->email = $this->email
         ]);
         if ($result) {
-            session()->flash('success', trans('Update Successfully'));
+            session()->flash('success', trans('Updated Successfully'));
         } else {
             session()->flash('error', trans('Not Update Successfully'));
         }

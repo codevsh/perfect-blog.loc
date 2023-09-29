@@ -37,7 +37,7 @@ class CommentComponent extends Component
         // dd($comment);
         $result = $comment->save();
         if ($result) {
-            session()->flash('success', trans('You have successfully commented on the post'));
+            session()->flash('success', trans('You have successfully commented on the article'));
             $this->resetFields();
             $this->dispatch('countComments')->to(ArticleDataComponent::class);
         } else {
@@ -65,7 +65,7 @@ class CommentComponent extends Component
             $this->view_edit = false;
             $this->dispatch('commented');
             $this->dispatch('countComments')->to(ArticleDataComponent::class);
-            session()->flash('success', trans('Comment has been updated successfully'));
+            session()->flash('success', trans('You have successfully update comment on the article'));
         } else {
             session()->flash('error', trans('Something went wrong'));
         }

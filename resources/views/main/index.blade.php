@@ -192,31 +192,35 @@
                     <div class="col-md-8">
                         @foreach ($articles as $article)
                             <article class="blog-post mb-4">
-                                <div class="post-card">
-                                    <img class="card-img-top" src="{{ Storage::url($article->prev_img) }}" alt="">
-                                    <h2>{{ $article->title }}</h2>
-                                    <ul class="meta-data">
-                                        <li><i class="fas fa-calendar"></i> <a
-                                                href="#">{{ \Carbon\Carbon::parse($article->created_at)->toFormattedDateString() }}</a>
-                                        </li>
-                                        <li><a href="#">
-                                            <i class="fas fa-th-list    "></i>
-                                            {{ $article->category->title }}</a></li>
-                                        <li><i class="fas fa-tag"></i>
-                                            @foreach ($article->tags as $tag)
-                                                <a href="#">{{ $tag->title }}</a>,
-                                            @endforeach
+                                <div class="post-card shadow-sm rounded-top">
+                                    <img class="card-img-top rounded-top" src="{{ Storage::url($article->prev_img) }}" alt="">
+                                    <div class="post-card-body px-3 pb-2 d-flex flex-column">
+                                        <h2>{{ $article->title }}</h2>
+                                        <ul class="meta-data d-flex">
+                                            <li><i class="fas fa-calendar"></i> <a
+                                                    href="#">{{ \Carbon\Carbon::parse($article->created_at)->toFormattedDateString() }}</a>
+                                            </li>
+                                            <li><a href="#">
+                                                    <i class="fas fa-th-list    "></i>
+                                                    {{ $article->category->title }}</a></li>
+                                            <li><i class="fas fa-tag"></i>
+                                                @foreach ($article->tags as $tag)
+                                                    <a href="#">{{ $tag->title }}</a>,
+                                                @endforeach
 
-                                        </li>
-                                        @livewire('article-data-component', [$article])
-                                    </ul>
-                                    <div class="description">
-                                        <p>
-                                            {!! mb_strimwidth($article->description, 0, 300, ' (...)') !!}
-                                        </p>
+                                            </li>
+                                            @livewire('article-data-component', [$article])
+                                        </ul>
+                                        <div class="description">
+                                            <p>
+                                                {!! mb_strimwidth($article->description, 0, 140, ' (...)') !!}
+                                            </p>
+                                        </div>
+                                        <a href="{{ route('main.show', $article->slug) }}"
+                                            class="btn-main ms-auto">{{ __('Continue reading') }}</a>
                                     </div>
-                                    <a href="{{ route('main.show', $article->slug) }}" class="btn-main">{{ __('Continue reading') }}</a>
                                 </div>
+                                </ul>
                             </article>
                         @endforeach
                         <nav class="my-5">

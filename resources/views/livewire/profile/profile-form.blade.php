@@ -1,14 +1,19 @@
 <div>
-    @if (session('success'))
-        <div class="alert alert-success">{{ session('success') }}</div>
-    @endif
-    @if (session('error'))
-        <div class="alert alert-danger">{{ session('error') }}</div>
-    @endif
-    <form wire:submit.prevent='update_info({{ Auth::user() }})'>
-        <div class="row">
-            <div class="card">
-                <div class="card-body">
+
+    <div class="row">
+        <div class="card">
+            @if (session('success'))
+                <div class="card-header bg-success text-light">
+                    {{ session('success') }}
+                </div>
+            @endif
+            @if (session('error'))
+                <div class="card-header bg-danger text-light">
+                    {{ session('error') }}
+                </div>
+            @endif
+            <div class="card-body">
+                <form wire:submit.prevent='update_info({{ Auth::user() }})'>
 
                     @if ($new_image)
                         <img src="{{ $new_image->temporaryUrl() }}" class="w-25 mb-3" alt="{{ $user->name }}">
@@ -17,8 +22,9 @@
                     @endif
                     <div class="form-group mb-3">
                         <div class="input-group mb-3">
-                            <input type="file" class="form-control bg-white" id="inputGroupFile02" wire:model='new_image'>
-                            <label class="input-group-text" for="inputGroupFile02">Upload</label>
+                            <input type="file" class="form-control bg-white" id="inputGroupFile02"
+                                wire:model='new_image'>
+                            <label class="input-group-text" for="inputGroupFile02">{{ __('Upload') }}</label>
                         </div>
                     </div>
 
@@ -38,9 +44,9 @@
                         @enderror
                     </div>
 
-                    <button type="submit" class="btn-main">Update</button>
-                </div>
+                    <button type="submit" class="btn-main">{{ __('Update') }}</button>
+                </form>
             </div>
         </div>
-    </form>
+    </div>
 </div>

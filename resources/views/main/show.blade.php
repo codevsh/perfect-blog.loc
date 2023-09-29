@@ -83,7 +83,7 @@
                                         <h4 class="card-title text-white mt-5 pt-2">{{ $item->title }}</h4>
                                     </a>
                                     <p class="card-text pb-2 pt-1 text-white">
-                                        {{ Str::limit(strip_tags($item->description), 80, ' (...)') }}
+                                        {{ Str::limit(strip_tags($item->description), 0, 40, ' (...)') }}
                                     </p>
                                     <a href="{{ route('main.show', $item->slug) }}" class="text-white">
                                         {{ \Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</a>

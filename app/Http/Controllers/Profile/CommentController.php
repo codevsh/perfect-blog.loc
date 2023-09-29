@@ -26,7 +26,7 @@ class CommentController extends Controller
         ]);
         $result = $comment->update($data);
         if ($result) {
-            return redirect()->route('profile.comments')->with('success', trans('Your comment has been updated successfully!'));
+            return redirect()->route('profile.comments')->with('success', trans('You have successfully update comment on the article'));
         } else {
            return back()->with('error', trans('Something went wrong'));
         }
@@ -36,7 +36,7 @@ class CommentController extends Controller
     {
         $result = $comment->delete();
         if ($result) {
-            return redirect()->route('profile.comments')->with('success', trans('Your comment has been deleted '));
+            return redirect()->route('profile.comments')->with('success', trans('Comment has been deleted successfully'));
         } else {
            return back()->with('error', trans('Something went wrong'));
         }

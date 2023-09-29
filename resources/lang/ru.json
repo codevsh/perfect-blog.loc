@@ -60,7 +60,6 @@
     "Category meta_description": "Мета_описание категории",
     "Category meta_keywords": "Мета-ключевые слова категории",
     "Create Category": "Создать категорию",
-    "Category has been created successfully!": "Категория успешно создана!",
     "Edit Category": "Изменить категорию",
     "Category has been edited successfully!": "Категория успешно отредактирована!",
     "Category has been deleted successfully!": "Категория успешно удалена!",
@@ -73,7 +72,6 @@
     "Tag meta_description": "Мета_описание тега",
     "Tag meta_keywords": "Мета-ключевые слова тега",
     "Create Tag": "Создать тег",
-    "Tag has been created successfully!": "Тег успешно создан!",
     "Edit Tag": "Редагувати Тег",
     "Tag has been edited successfully!": "Тег успешно отредактирован!",
     "Tag has been deleted successfully!": "Тег успешно удален!",
@@ -106,7 +104,23 @@
     "or": "или",
     "Related articles": "Статьи по Теме",
     "Comment(s)": "Комментарий(и)",
-    "Popular Articles": "Популярные статьи"
-
+    "Popular Articles": "Популярные статьи",
+    "Back to site": "Вернуться на сайт",
+    "Article has been created successfully!": "Статья успешно создана!",
+    "Article has been updated successfully!": "Статья успешно обновлена!",
+    "Article has been deleted successfully!": "Статья успешно удалена!",
+    "Category has been created successfully!": "Категория успешно создана!",
+    "Category has been updated successfully!": "Категория успешно обновлена!",
+    "Tag has been created successfully!": "Тег успешно создан!",
+    "Tag has been updated successfully!": "Тег успешно обновлен!",
+    "Update": "обновить",
+    "My Comment": "Мой комментарий",
+    "comment content": "содержание комментария",
+    "You have successfully update comment on the article": "Вы успешно обновили комментарий к статье.",
+    "You have successfully commented on the article": "Вы успешно прокомментировали статью",
+    "Comment has been deleted successfully": "Комментарий успешно удален",
+    "Upload": "Загрузить",
+    "Updated Successfully": "Успешно Обновлено",
+    "Not Update Successfully":"Не удалось обновить"
 
 }

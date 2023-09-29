@@ -18,7 +18,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::paginate(10);
+        $articles = Article::orderBy('id', 'DESC')->paginate(10);
         return view('admin.articles.index', compact('articles'));
     }
 
@@ -67,7 +67,7 @@ class ArticleController extends Controller
 
         $article->tags()->attach($tadIds);
 
-        return redirect()->route('admin.article.index')->with('success', trans('Article has been created succesfully!'));
+        return redirect()->route('admin.article.index')->with('success', trans('Article has been created successfully!'));
     }
 
     /**
