@@ -73,8 +73,8 @@
         <nav class="nav d-flex justify-content-center">
             <a class="nav-link text-muted" href="{{ route('main.index') }}">{{ __('Home') }}
                 <span class="sr-only">(current)</span></a>
-            <a class="nav-link text-muted" href="#">{{ __('About') }}</a>
-            <a class="nav-link text-muted" href="#">{{ __('Contact') }}</a>
+            <a class="nav-link text-muted" href="{{ route('main.about') }}">{{ __('About') }}</a>
+            <a class="nav-link text-muted" href="{{ route('main.contact') }}">{{ __('Contact') }}</a>
             <a class="nav-link text-muted" href="{{ route('profile') }}">{{ __('Profile') }}</a>
             <a class="nav-link text-muted"
                 href="{{ route('admin.index') }}">{{ __('Settings') }}</a>

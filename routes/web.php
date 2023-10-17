@@ -22,6 +22,8 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\PasswordConfirmationController;
 use App\Http\Controllers\Auth\EmailVerificationPromtController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
+use App\Http\Controllers\Main\AboutController;
+use App\Http\Controllers\Main\ContactController;
 use App\Http\Controllers\SearchController;
 
 /*
@@ -48,6 +50,8 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => '[a-zA-Z]{2}'], 'm
     Route::get('/category/{slug}', [CategoryFilter::class, 'index'])->name('main.category');
     Route::get('/tag/{slug}', [TagFilter::class, 'index'])->name('main.tag');
     Route::get('/search', [SearchController::class, 'search'])->name('main.search');
+    Route::get('/about', [AboutController::class, 'index'])->name('main.about');
+    Route::get('/contact', [ContactController::class, 'index'])->name('main.contact');
 
     Route::middleware('guest')->group(function () {
         // register
