@@ -15,7 +15,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 my-auto">
-                        @livewire('main.contact-form')
+                        <livewire:main.contact-form />
                     </div>
                     <div class="col-md-6">
                         <img src="{{ asset('front/images/contact/contact.png') }}" alt="{{ __('Contact us') }}">

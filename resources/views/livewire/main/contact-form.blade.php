@@ -2,7 +2,7 @@
     <div class="card-body">
 
 
-        <form action="">
+        <form wire:submit='send_text'>
             <div class="form-group mb-3">
                 <label for="">{{ __('Your Name') }}</label>
                 <input type="text" name="name" id=""
@@ -29,7 +29,10 @@
             </div>
             <div class="form-group mb-3">
                 <label for="">Your Message</label>
-                <textarea class="form-control bg-white" name="message" wire:model='message' rows="3"></textarea>
+                <textarea class="form-control bg-white @error('text') border-danger @enderror" name="message" wire:model='text' rows="3"></textarea>
+                @error('text')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
             </div>
             <button type="submit" class="btn-main">Send</button>
         </form>
