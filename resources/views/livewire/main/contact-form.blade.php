@@ -1,4 +1,9 @@
 <div class="card">
+    @if (session('success'))
+        <div class="card-header bg-success">
+            <p class="text-white">{{ session('success') }}</p>
+        </div>
+    @endif
     <div class="card-body">
 
 
@@ -22,14 +27,16 @@
             <div class="form-group mb-3">
                 <label for="">{{ __('Subject') }}</label>
                 <input type="text" name="subject" id=""
-                    class="form-control bg-white @error('subject') border-danger @enderror" autofocus wire:model='subject'>
+                    class="form-control bg-white @error('subject') border-danger @enderror" autofocus
+                    wire:model='subject'>
                 @error('subject')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
             <div class="form-group mb-3">
                 <label for="">Your Message</label>
-                <textarea class="form-control bg-white @error('text') border-danger @enderror" name="message" wire:model='text' rows="3"></textarea>
+                <textarea class="form-control bg-white @error('text') border-danger @enderror" name="message" wire:model='text'
+                    rows="3"></textarea>
                 @error('text')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror

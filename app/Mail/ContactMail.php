@@ -12,17 +12,17 @@ use Illuminate\Queue\SerializesModels;
 class ContactMail extends Mailable
 {
     use Queueable, SerializesModels;
-    public $name;
-    public $email;
-    public $subject;
-    public $text;
+    public $name, $email, $subject, $text;
 
     /**
      * Create a new message instance.
      */
     public function __construct($name, $email, $subject, $text)
     {
-        //
+        $this->name = $name;
+        $this->email = $email;
+        $this->subject = $subject;
+        $this->text = $text;
     }
 
     /**
@@ -31,7 +31,7 @@ class ContactMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Contact Mail',
+            subject: "From contact form",
         );
     }
 

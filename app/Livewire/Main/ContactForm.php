@@ -21,19 +21,27 @@ class ContactForm extends Component
     #[Rule("required")]
     public $text;
 
+    public $data = [];
 
     public function send_text()
     {
         $this->validate();
-        $data = [];
-        $data['name'] = $this->name;
-        $data['email'] = $this->email;
-        $data['subject'] = $this->subject;
-        $data['text'] = $this->text;
+        $name = $this->name;
+        $email = $this->email;
+        $subject = $this->subject;
+        $text = $this->text;
+        // dd($name, $email, $subject, $text);
 
-        $result = Mail::to("perfect_blog@example.com")->send(new ContactMail($this->data));
-
-
+        $result = Mail::to("perfect_blog@example.com")->send(new ContactMail($name, $email, $subject, $text));
+        $this->resetForm();
+        session()->flash("success", trans("Message has been send"));
+    }
+    private function resetForm()
+    {
+        $this->name = '';
+        $this->email = '';
+        $this->subject = '';
+        $this->text = '';
     }
 
     public function render()
