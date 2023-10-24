@@ -1,6 +1,3 @@
-<style>
-    .nav-link.active {}
-</style>
 <div class="container">
     <div class="top-header row py-3 align-items-center">
         <div class="col-md-4 col-sm-12">
@@ -68,8 +65,9 @@
 </div>
 <nav class="navbar navbar-expand-lg bg-white">
     <div class="container">
-        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse py-1 mb-2 mx-auto" id="navbarSupportedContent" style="flex-grow: 0">
