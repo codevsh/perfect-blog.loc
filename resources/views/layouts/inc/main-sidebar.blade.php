@@ -51,7 +51,7 @@
                 <div class="row g-0 border rounded overflow-hidden d-flex shadow-sm h-md-250 position-relative mb-3"
                     style="font-size: 13px !imprtant;">
                     <div class="col py-2 px-2 d-flex flex-column position-static">
-                        <strong class="d-inline-block mb-1 text-primary">{{ $item->category->title }}</strong>
+                        <strong class="category-article d-inline-block mb-1 text-primary">{{ $item->category->title }}</strong>
                         <h5 class="mb-0"><a class="text-dark text-decoration-none"
                                 href="{{ route('main.show', $item->slug) }}">{{ $item->title }}</a></h5>
                         </h5>

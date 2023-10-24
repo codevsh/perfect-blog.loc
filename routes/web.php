@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminAboutController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Main\TagFilter;
 use App\Http\Controllers\Admin\TagController;
@@ -136,6 +137,15 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => '[a-zA-Z]{2}'], 'm
                 Route::get('article/{slug}/edit', 'edit')->name('admin.article.edit');
                 Route::patch('article/{slug}', 'update')->name('admin.article.update');
                 Route::delete('article/{slug}', 'destroy')->name('admin.article.delete');
+            });
+            Route::controller(AdminAboutController::class)->group(function () {
+                Route::get('about', 'index')->name('admin.about.index');
+                Route::get('about/create', 'create')->name('admin.about.create');
+                Route::post('about', 'store')->name('admin.about.store');
+                Route::get('about/{about}', 'show')->name('admin.about.show');
+                Route::get('about/{about}/edit', 'edit')->name('admin.about.edit');
+                Route::patch('about/{about}', 'update')->name('admin.about.update');
+                Route::delete('about/{about}', 'destroy')->name('admin.about.delete');
             });
         });
     });

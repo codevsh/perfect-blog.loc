@@ -51,7 +51,7 @@
     <li><hr class="dropdown-divider"></li>
 
     <li class="nav-item">
-        <a href="#" class="nav-link">
+        <a href="{{ route('admin.about.index') }}" class="nav-link">
             <i class="nav-icon fas fa-file"></i>
             <p>
                 {{ __('About') }}
