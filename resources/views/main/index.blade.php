@@ -217,7 +217,7 @@
                                             </p>
                                         </div>
                                         <a href="{{ route('main.show', $article->slug) }}"
-                                            class="btn-main ms-auto">{{ __('Continue reading') }}</a>
+                                            class="btn-main ms-auto">{{ __('Continue') }}</a>
                                     </div>
                                 </div>
                                 </ul>
