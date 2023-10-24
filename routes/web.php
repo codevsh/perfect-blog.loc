@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Profile\LikedController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\SocialController;
 use App\Http\Controllers\Profile\CommentController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\Auth\ResetPasswordController;
@@ -146,6 +147,16 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => '[a-zA-Z]{2}'], 'm
                 Route::get('about/{about}/edit', 'edit')->name('admin.about.edit');
                 Route::patch('about/{about}', 'update')->name('admin.about.update');
                 Route::delete('about/{about}', 'destroy')->name('admin.about.delete');
+            });
+
+            Route::controller(SocialController::class)->group(function () {
+                Route::get('social', 'index')->name('admin.social.index');
+                Route::get('social/create', 'create')->name('admin.social.create');
+                Route::post('social', 'store')->name('admin.social.store');
+                Route::get('social/{social}', 'show')->name('admin.social.show');
+                Route::get('social/{social}/edit', 'edit')->name('admin.social.edit');
+                Route::patch('social/{social}', 'update')->name('admin.social.update');
+                Route::delete('social/{social}', 'destroy')->name('admin.social.delete');
             });
         });
     });
