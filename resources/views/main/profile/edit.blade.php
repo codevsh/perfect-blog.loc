@@ -2,7 +2,7 @@
 @section('title', 'My Profile EDit')
 @section('content')
     {{-- <h1>{{ __('My Profile') }}</h1> --}}
-    @include('layouts.inc.main-header')
+    <x-header-component/>
 
     <div class="bg-light py-3 mb-5">
         <div class="container">
@@ -34,5 +34,5 @@
         </div>
 
     </section>
-    @include('layouts.inc.main-footer')
+    <x-footer-component/>
 @endsection

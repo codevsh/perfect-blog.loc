@@ -1,8 +1,7 @@
 @extends('layouts.main')
 @section('title', 'My Comments')
 @section('content')
-    {{-- <h1>{{ __('My Profile') }}</h1> --}}
-    @include('layouts.inc.main-header')
+    <x-header-component />
 
     <div class="bg-light py-3 mb-5">
         <div class="container">
@@ -40,10 +39,7 @@
                                             @method('PATCH')
                                             <div class="form-group mb-3">
                                                 <label for="content">{{ __('comment content') }}</label>
-                                                <textarea class="form-control @error('content') 'border-danger' @enderror"
-                                                          id="content"
-                                                          rows="3"
-                                                          name="content">{{ $comment->content }}</textarea>
+                                                <textarea class="form-control @error('content') 'border-danger' @enderror" id="content" rows="3" name="content">{{ $comment->content }}</textarea>
                                                 @error('content')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
@@ -60,5 +56,5 @@
             </div>
         </div>
     </section>
-    @include('layouts.inc.main-footer')
+    <x-footer-component/>
 @endsection

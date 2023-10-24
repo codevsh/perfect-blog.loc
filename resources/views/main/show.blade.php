@@ -20,7 +20,7 @@
 
     <body>
 
-        @include('layouts.inc.main-header')
+        <x-header-component/>
 
         <div class="bg-light py-3 mb-5">
             <div class="container">
@@ -96,6 +96,6 @@
         </section>
         @livewire('comment-component', ['article' => $article])
 
-        @include('layouts.inc.main-footer')
+        <x-footer-component/>
 
     @endsection

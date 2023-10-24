@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('title', trans('About'))
 @section('content')
-    @include('layouts.inc.main-header')
+    <x-header-component />
     <section class="about mb-5">
         <div class="bg-light py-3 mb-5">
             <div class="container">
@@ -30,5 +30,5 @@
             </div>
         </div>
     </section>
-    @include('layouts.inc.main-footer')
+   <x-footer-component/>
 @endsection

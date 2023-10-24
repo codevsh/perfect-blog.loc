@@ -68,7 +68,7 @@
                 </div>
             </div>
         </section>
-
-        @include('layouts.inc.main-footer')
+        <x-footer-component/>
+        {{-- @include('layouts.inc.main-footer') --}}
 
     @endsection
