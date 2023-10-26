@@ -14,9 +14,6 @@ class CategoryFilter extends Controller
     {
         $category = Category::where('slug', $slug)->first();
         $articles = Article::where('category_id', $category->id)->paginate(5);
-        $categories = Category::all();
-        $tags = Tag::all();
-        $likedArticles = Article::withCount('likedUsers')->orderBy('liked_users_count', 'DESC')->get()->take(4);
-        return view('main.caregory-filter', compact('articles', 'category', 'categories', 'tags', 'likedArticles'));
+        return view('main.caregory-filter', compact('articles', 'category'));
     }
 }

@@ -64,7 +64,8 @@
                         </nav>
                     </div>
 
-                    @include('layouts.inc.main-sidebar')
+                    {{-- @include('layouts.inc.main-sidebar') --}}
+                    <x-main-sidebar-component/>
                 </div>
             </div>
         </section>

@@ -14,10 +14,7 @@ class MainController extends Controller
     {
         $articles = Article::orderBy('id', 'DESC')->paginate(5);
 
-        $likedArticles = Article::withCount('likedUsers')->orderBy('liked_users_count', 'DESC')->get()->take(4);
-        $categories = Category::all();
-        $tags = Tag::all();
-        return view('main.index',  compact('articles', 'categories', 'tags', 'likedArticles'));
+        return view('main.index',  compact('articles'));
     }
 
 }
