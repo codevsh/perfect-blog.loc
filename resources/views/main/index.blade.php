@@ -2,25 +2,10 @@
 @section('title', 'Home')
 @section('content')
 
-    <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
-        }
 
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
-    </style>
 
     <body>
 
-        {{-- @include('layouts.inc.main-header') --}}
         <x-header-component/>
         <section class="main-content">
             <div class="container">
@@ -64,12 +49,10 @@
                         </nav>
                     </div>
 
-                    {{-- @include('layouts.inc.main-sidebar') --}}
                     <x-main-sidebar-component/>
                 </div>
             </div>
         </section>
         <x-footer-component/>
-        {{-- @include('layouts.inc.main-footer') --}}
 
     @endsection

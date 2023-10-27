@@ -1,7 +1,6 @@
 @extends('layouts.main')
 @section('title', 'My Profile')
 @section('content')
-    {{-- <h1>{{ __('My Profile') }}</h1> --}}
     <x-header-component/>
 
     <div class="bg-light py-3 mb-5">
