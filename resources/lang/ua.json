@@ -122,5 +122,13 @@
     "Upload": "Завантажити",
     "Updated Successfully": "Оновлено успішно",
     "Not Update Successfully":"Не вдалося оновити",
-    "Portfolio": "Портфоліо"
+    "Portfolio": "Портфоліо",
+    "Contact us": "Зв'яжіться з нами",
+    "Your Name": "Ваше Ім'я",
+    "Your Email": "Ваша електронна адреса",
+    "Subject": "Тема",
+    "Your Message": "Ваше повідомлення",
+    "Send": "Надіслати",
+    "Message has been send": "Повідомлення надіслано"
+
 }

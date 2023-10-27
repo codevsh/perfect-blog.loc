@@ -34,14 +34,14 @@
                 @enderror
             </div>
             <div class="form-group mb-3">
-                <label for="">Your Message</label>
+                <label for="">{{ __('Your Message') }}</label>
                 <textarea class="form-control bg-white @error('text') border-danger @enderror" name="message" wire:model='text'
                     rows="3"></textarea>
                 @error('text')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
-            <button type="submit" class="btn-main">Send</button>
+            <button type="submit" class="btn-main">{{ __('Send') }}</button>
         </form>
     </div>
 </div>
