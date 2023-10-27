@@ -98,7 +98,7 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => '[a-zA-Z]{2}'], 'm
         Route::post('email/verification-notification', [EmailVerificationNotificationController::class, '__invoke'])->name('verification.send');
 
         // admin
-        Route::prefix('admin')->group(function () {
+        Route::group(['prefix' => 'admin', 'middleware' =>['auth', 'verified', 'isAdmin']], function () {
             Route::get('/', [AdminController::class, 'index'])->middleware('verified')->name('admin.index');
             Route::controller(RoleController::class)->group(function () {
                 Route::get('role', 'index')->name('admin.role.index');

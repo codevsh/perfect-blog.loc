@@ -129,6 +129,9 @@
     "Subject": "Тема",
     "Your Message": "Ваше повідомлення",
     "Send": "Надіслати",
-    "Message has been send": "Повідомлення надіслано"
+    "Message has been send": "Повідомлення надіслано",
+    "You have not admin access": "Ви не маєте прав адміністратора",
+    "Page Not Found": "Сторінку не знайдено",
+    "Go Home": "Іди додому"
 
 }

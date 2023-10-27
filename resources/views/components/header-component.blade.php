@@ -32,8 +32,13 @@
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item" href="{{ route('profile') }}">{{ __('Profile') }}</a>
                                     </li>
-                                    <li><a class="dropdown-item" href="{{ route('admin.index') }}">{{ __('Settings') }}</a>
-                                    </li>
+                                    @if (Auth::user()->role_id == 2)
+                                        <li>
+                                            <a class="dropdown-item"
+                                                href="{{ route('admin.index') }}">{{ __('Settings') }}</a>
+                                        </li>
+                                    @endif
+
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
@@ -79,7 +84,9 @@
                     <a class="nav-link text-muted" href="{{ route('main.about') }}">{{ __('About') }}</a>
                     <a class="nav-link text-muted" href="{{ route('main.contact') }}">{{ __('Contact') }}</a>
                     <a class="nav-link text-muted" href="{{ route('profile') }}">{{ __('Profile') }}</a>
-                    <a class="nav-link text-muted" href="{{ route('admin.index') }}">{{ __('Settings') }}</a>
+                    @if (Auth::user() && Auth::user()->role == 'admin')
+                        <a class="nav-link text-muted" href="{{ route('admin.index') }}">{{ __('Settings') }}</a>
+                    @endif
                 </nav>
             </div>
         </div>

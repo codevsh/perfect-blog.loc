@@ -129,6 +129,8 @@
     "Subject": "Тема",
     "Your Message": "Ваше сообщение",
     "Send": "Отправить",
-    "Message has been send": "Сообщение отправлено"
+    "Message has been send": "Сообщение отправлено",
+    "You have not admin access": "У вас нет доступа администратора",
+    "Page Not Found": "Страница не найдена"
 }
 

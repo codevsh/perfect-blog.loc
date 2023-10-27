@@ -16,7 +16,9 @@
 </head>
 
 <body>
-
+    @if (session('error'))
+        <p class="text-danger text-center py-2">{{ session('error') }}</p>
+    @endif
     @yield('content')
 
 
