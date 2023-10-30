@@ -73,7 +73,7 @@ class ArticleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($locale, $slug)
+    public function show($slug)
     {
         // dd($slug);
         $article = Article::where('slug', $slug)->firstOrFail();
@@ -83,7 +83,7 @@ class ArticleController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($locale, $slug)
+    public function edit($slug)
     {
         $categories = Category::all();
         $tags = Tag::all();
@@ -94,7 +94,7 @@ class ArticleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update($locale, UpdateArticleRequest $request, $slug)
+    public function update(UpdateArticleRequest $request, $slug)
     {
         $article = Article::where('slug', $slug)->firstOrFail();
         $data = $request->validated();
@@ -148,7 +148,7 @@ class ArticleController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($locale, $slug)
+    public function destroy($slug)
     {
         $article = Article::where('slug', $slug)->firstOrFail();
         $destination = public_path('storage\\' . $article->prev_img);

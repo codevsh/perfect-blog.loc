@@ -23,7 +23,7 @@ class AdminAboutController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($locale, About $about)
+    public function show(About $about)
     {
         return view('admin.about.show', compact('about'));
     }
@@ -31,7 +31,7 @@ class AdminAboutController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($locale, About $about)
+    public function edit(About $about)
     {
         return view('admin.about.edit', compact('about'));
     }
@@ -39,7 +39,7 @@ class AdminAboutController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update($locale, UpdateAboutRequest $request, About $about)
+    public function update(UpdateAboutRequest $request, About $about)
     {
         $data = $request->validated();
         // dd($data);

@@ -1,32 +1,34 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminAboutController;
+use App\Http\Middleware\Localization;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Main\TagFilter;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Main\CategoryFilter;
 use App\Http\Controllers\Main\MainController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Main\AboutController;
 use App\Http\Controllers\MainSingleController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\SocialController;
+use App\Http\Controllers\LocalizationController;
+use App\Http\Controllers\Main\ContactController;
 use App\Http\Controllers\Main\ProfileController;
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Profile\LikedController;
 use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\SocialController;
 use App\Http\Controllers\Profile\CommentController;
+use App\Http\Controllers\Admin\AdminAboutController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\PasswordConfirmationController;
 use App\Http\Controllers\Auth\EmailVerificationPromtController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
-use App\Http\Controllers\Main\AboutController;
-use App\Http\Controllers\Main\ContactController;
-use App\Http\Controllers\SearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,12 +40,13 @@ use App\Http\Controllers\SearchController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('localization/{locale}', LocalizationController::class)->name('localization');
 
-Route::get('/', function () {
-    return redirect(app()->getLocale());
-});
+// Route::get('/', function () {
+//     return redirect(app()->getLocale());
+// });
 
-Route::group(['prefix' => '{locale}', 'where' => ['locale' => '[a-zA-Z]{2}'], 'middleware' => 'setlocale'], function () {
+Route::middleware(Localization::class)->group( function () {
 
     // routes Main
 

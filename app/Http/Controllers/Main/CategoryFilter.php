@@ -10,7 +10,7 @@ use App\Models\Tag;
 
 class CategoryFilter extends Controller
 {
-    public function index($locale, $slug)
+    public function index($slug)
     {
         $category = Category::where('slug', $slug)->first();
         $articles = Article::where('category_id', $category->id)->paginate(5);

@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 
 class TagFilter extends Controller
 {
-    public function index($locale, $slug)
+    public function index($slug)
     {
         $tag = Tag::where('slug', $slug)->first();
         $articles = $tag->articles()->paginate(5);

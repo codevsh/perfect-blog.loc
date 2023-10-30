@@ -29,7 +29,7 @@ class SocialController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store($locale, StoreSocialRequest $request)
+    public function store(StoreSocialRequest $request)
     {
         $data = $request->validated();
         $result = Social::create($data);
@@ -44,7 +44,7 @@ class SocialController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($locale, Social $social)
+    public function edit(Social $social)
     {
         return view("admin.socials.edit", compact("social"));
     }
@@ -52,7 +52,7 @@ class SocialController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update($locale, UpdateSocialRequest $request, Social $social)
+    public function update(UpdateSocialRequest $request, Social $social)
     {
         $data = $request->validated();
         $result = $social->update($data);
@@ -66,7 +66,7 @@ class SocialController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($locale, Social $social)
+    public function destroy(Social $social)
     {
         $result = $social->delete();
         if ($result) {

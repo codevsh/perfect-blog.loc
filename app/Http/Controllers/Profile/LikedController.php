@@ -19,7 +19,7 @@ class LikedController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($locale, Article $article)
+    public function destroy(Article $article)
     {
         auth()->user()->likedArticle()->detach($article->id);
         return redirect()->route('profile.likes');

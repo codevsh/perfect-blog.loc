@@ -19,7 +19,7 @@ class ProfileController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($locale, User $user)
+    public function edit(User $user)
     {
         return view('main.profile.edit', compact('user'));
     }
@@ -27,7 +27,7 @@ class ProfileController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update($locale, Request $request, User $user)
+    public function update(Request $request, User $user)
     {
         // $data = $request->validate([
         //     'profile_image' => 'image|max:1024',

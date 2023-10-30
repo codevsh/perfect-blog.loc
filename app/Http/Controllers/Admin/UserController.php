@@ -23,7 +23,7 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($locale, User $user)
+    public function edit(User $user)
     {
         $roles = Role::all();
         return view('admin.users.edit', compact('user', 'roles'));
@@ -32,7 +32,7 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update($locale, UpdateUserRequest $request, User $user)
+    public function update(UpdateUserRequest $request, User $user)
     {
         $data = $request->validated();
         $result = $user->update($data);
@@ -47,7 +47,7 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($locale, User $user)
+    public function destroy(User $user)
     {
         $result = $user->delete();
         if ($result) {

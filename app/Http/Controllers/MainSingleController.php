@@ -10,7 +10,7 @@ class MainSingleController extends Controller
     /**
      * Handle the incoming request.
      */
-    public function __invoke($locale, $slug)
+    public function __invoke($slug)
     {
         $article = Article::where('slug', $slug)->firstOrFail();
         $rarticles = Article::where('category_id', $article->category->id)->get()->take(4);

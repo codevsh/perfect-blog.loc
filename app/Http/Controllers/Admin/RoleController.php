@@ -45,7 +45,7 @@ class RoleController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($locale, Role $role)
+    public function edit(Role $role)
     {
         return view('admin.roles.edit', compact('role'));
     }
@@ -53,7 +53,7 @@ class RoleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update($locale, UpdateRoleRequest $request, Role $role)
+    public function update(UpdateRoleRequest $request, Role $role)
     {
         $data = $request->validated();
         $result = $role->update($data);
@@ -68,7 +68,7 @@ class RoleController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($locale, Role $role)
+    public function destroy(Role $role)
     {
         $result = $role->delete();
         if ($result) {

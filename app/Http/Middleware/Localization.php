@@ -4,10 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\URL;
 use Symfony\Component\HttpFoundation\Response;
 
-class SetLocale
+class Localization
 {
     /**
      * Handle an incoming request.
@@ -16,8 +15,7 @@ class SetLocale
      */
     public function handle(Request $request, Closure $next): Response
     {
-        app()->setLocale($request->segment(1));
-        URL::defaults(['locale' => $request->segment(1)]);
+        app()->setLocale(session('localization', config('app.locale')));
         return $next($request);
     }
 }

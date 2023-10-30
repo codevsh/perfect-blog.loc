@@ -45,7 +45,7 @@ class TagController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($locale, $slug)
+    public function edit($slug)
     {
         $tag = Tag::where('slug', $slug)->first();
         return view('admin.tags.edit', compact('tag'));
@@ -54,7 +54,7 @@ class TagController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update($locale, UpdateTagRequest $request, $slug)
+    public function update(UpdateTagRequest $request, $slug)
     {
         $tag = Tag::where('slug', $slug)->first();
         $data = $request->validated();
@@ -70,7 +70,7 @@ class TagController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($locale, $slug)
+    public function destroy($slug)
     {
         $tag = Tag::where('slug', $slug)->first();
         $result = $tag->delete();

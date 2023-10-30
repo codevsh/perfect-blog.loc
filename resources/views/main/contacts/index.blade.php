@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', trans('About'))
+@section('title', trans('Contact'))
 @section('content')
     <x-header-component />
     <section class="about mb-5">

@@ -31,6 +31,7 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
+                                    <th>{{ __('Image') }}</th>
                                     <th>{{ __('Name') }}</th>
                                     <th>{{ __('Email') }}</th>
                                     <th>{{ __('Role') }}</th>
@@ -41,6 +42,7 @@
                                     @foreach ($users as $user)
                                     <tr>
                                         <td scope="row">{{ $user->id }}</td>
+                                        <td><img src="{{ Storage::url($user->profile_image) }}" alt="{{ __('image') }} - {{ $user->name }}" class="w-25"></td>
                                         <td>{{ __($user->name) }}</td>
                                         <td>{{ __($user->email) }}</td>
                                         <td>{{ __($user->role->title) }}</td>

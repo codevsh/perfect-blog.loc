@@ -26,7 +26,7 @@ class CategoryController extends Controller
         return view('admin.categories.create');
     }
 
-    public function store($locale, StoreCategoryRequest $request)
+    public function store(StoreCategoryRequest $request)
     {
         $data = $request->validated();
         $result = Category::create($data);
@@ -41,7 +41,7 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($locale, $slug)
+    public function edit($slug)
     {
         $category = Category::where('slug', $slug)->first();
         return view('admin.categories.edit', compact('category'));
@@ -50,7 +50,7 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update($locale, UpdateCategoryRequest $request, $slug)
+    public function update(UpdateCategoryRequest $request, $slug)
     {
         $category = Category::where('slug', $slug)->firstOrFail();
         // dd($category->slug);
@@ -67,7 +67,7 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($locale, $slug)
+    public function destroy($slug)
     {
         $category = Category::where('slug', $slug)->firstOrFail();
         $result = $category->delete();

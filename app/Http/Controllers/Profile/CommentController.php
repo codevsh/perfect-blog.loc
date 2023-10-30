@@ -13,12 +13,12 @@ class CommentController extends Controller
         $comments = auth()->user()->comments;
         return view('main.profile.comments.index', compact('comments'));
     }
-    public function edit($locale, Comment $comment)
+    public function edit(Comment $comment)
     {
         return view('main.profile.comments.edit', compact('comment'));
 
     }
-    public function update($locale, Request $request, Comment $comment)
+    public function update(Request $request, Comment $comment)
     {
         // dd($request->all());
         $data = $request->validate([
@@ -32,7 +32,7 @@ class CommentController extends Controller
         }
 
     }
-    public function destroy($locale, Comment $comment)
+    public function destroy(Comment $comment)
     {
         $result = $comment->delete();
         if ($result) {
