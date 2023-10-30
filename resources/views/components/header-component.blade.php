@@ -56,7 +56,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-muted bg-light" href="#" id="navbarDropdown"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                {{ session('localization') == null ? __('Lang') : strtoupper(session('localization')) }}
+                                {{ strtoupper(app()->getLocale()) }}
                             </a>
                             <ul class="dropdown-menu bg-white" aria-labelledby="navbarDropdown">
                                 @foreach (config('app.available_locales') as $locale)
