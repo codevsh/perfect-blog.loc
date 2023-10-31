@@ -5,7 +5,7 @@
 
     <body>
 
-        <x-header-component/>
+        <x-header-component />
 
         <div class="bg-light py-3 mb-5">
             <div class="container">
@@ -25,15 +25,15 @@
                             </div>
                             <h2>{{ $article->title }}</h2>
                             <ul class="meta-data">
-                                <li><i class="fas fa-calendar"></i> <a
-                                        href="#">{{ \Carbon\Carbon::parse($article->created_at)->toFormattedDateString() }}</a>
+                                <li><i class="fas fa-calendar"></i>
+                                    {{ \Carbon\Carbon::parse($article->created_at)->toFormattedDateString() }}
                                 </li>
-                                <li><a href="#">
-                                    <i class="fas fa-th-list    "></i>
-                                    {{ $article->category->title }}</a></li>
+                                <li><a href="{{ route('main.category', $article->category->slug) }}">
+                                        <i class="fas fa-th-list    "></i>
+                                        {{ $article->category->title }}</a></li>
                                 <li><i class="fas fa-tag"></i>
                                     @foreach ($article->tags as $tag)
-                                        <a href="#">{{ $tag->title }}</a>,
+                                        <a href="{{ route('main.tag', $tag->slug) }}">{{ $tag->title }}</a>,
                                     @endforeach
 
                                 </li>
@@ -81,6 +81,6 @@
         </section>
         @livewire('comment-component', ['article' => $article])
 
-        <x-footer-component/>
+        <x-footer-component />
 
     @endsection

@@ -4,7 +4,7 @@
 
     <body>
 
-        <x-header-component/>
+        <x-header-component />
 
         <div class="bg-light py-3 mb-5">
             <div class="container">
@@ -28,15 +28,15 @@
                                             alt="">
                                         <h2>{{ $article->title }}</h2>
                                         <ul class="meta-data">
-                                            <li><i class="fas fa-calendar"></i> <a
-                                                    href="#">{{ \Carbon\Carbon::parse($article->created_at)->toFormattedDateString() }}</a>
+                                            <li><i class="fas fa-calendar"></i>
+                                                {{ \Carbon\Carbon::parse($article->created_at)->toFormattedDateString() }}
                                             </li>
-                                            <li><a href="#">
+                                            <li><a href="{{ route('main.category', $article->category->slug) }}">
                                                     <i class="fas fa-th-list    "></i>
                                                     {{ $article->category->title }}</a></li>
                                             <li><i class="fas fa-tag"></i>
                                                 @foreach ($article->tags as $tag)
-                                                    <a href="#">{{ $tag->title }}</a>,
+                                                    <a href="{{ route('main.tag', $tag->slug) }}">{{ $tag->title }}</a>,
                                                 @endforeach
 
                                             </li>
@@ -44,27 +44,27 @@
                                         </ul>
                                         <div class="description">
                                             <p>
-                                                {!! mb_strimwidth($article->description, 0, 300, ' (...)') !!}
+                                                {!! mb_strimwidth($article->description, 0, 140, ' (...)') !!}
                                             </p>
                                         </div>
                                         <a href="{{ route('main.show', $article->slug) }}"
-                                            class="btn-main">{{ __('Continue reading') }}</a>
+                                            class="btn-main">{{ __('Continue') }}</a>
                                     </div>
                                 </article>
-                                @endforeach
-                                <nav class="my-5">
-                                    {{ $articles->links('pagination::bootstrap-5') }}
-                                </nav>
-                                @else
-                                <h3 class="text-center">{{ __('Sorry, but there are no articles in this tag yet') }}</h3>
-                                @endif
-                            </div>
+                            @endforeach
+                            <nav class="my-5">
+                                {{ $articles->links('pagination::bootstrap-5') }}
+                            </nav>
+                        @else
+                            <h3 class="text-center">{{ __('Sorry, but there are no articles in this tag yet') }}</h3>
+                        @endif
+                    </div>
 
-                    <x-main-sidebar-component/>
+                    <x-main-sidebar-component />
                 </div>
             </div>
         </section>
 
-        <x-footer-component/>
+        <x-footer-component />
 
     @endsection

@@ -19,7 +19,7 @@
 
                             <div class="form-group mb-3">
                                 <input type="email" class="form-control @error('email') border-danger @enderror"
-                                    name="email" placeholder="{{ __('Email') }}" value="{{ old('email') }}" autofocus>
+                                    name="email" placeholder="{{ __('Email') }}" value="{{ old('email') }}" autofocus autocomplete="on">
                                 @error('email')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror

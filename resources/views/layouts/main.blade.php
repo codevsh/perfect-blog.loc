@@ -11,6 +11,7 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('build/assets/app-1f8affc9.css') }}">
+    <link rel="icon" href="{{ asset('front/images/fav-icon.png') }}" type="image/x-icon">
     {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
     @livewireStyles
 </head>

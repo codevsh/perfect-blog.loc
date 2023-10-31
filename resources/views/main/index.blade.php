@@ -6,7 +6,7 @@
 
     <body>
 
-        <x-header-component/>
+        <x-header-component />
         <section class="main-content">
             <div class="container">
                 <div class="row">
@@ -14,19 +14,20 @@
                         @foreach ($articles as $article)
                             <article class="blog-post mb-4">
                                 <div class="post-card shadow-sm rounded-top">
-                                    <img class="card-img-top rounded-top" src="{{ Storage::url($article->prev_img) }}" alt="">
+                                    <img class="card-img-top rounded-top" src="{{ Storage::url($article->prev_img) }}"
+                                        alt="">
                                     <div class="post-card-body px-3 pb-2 d-flex flex-column">
                                         <h2>{{ $article->title }}</h2>
                                         <ul class="meta-data d-flex">
-                                            <li><i class="fas fa-calendar"></i> <a
-                                                    href="#">{{ \Carbon\Carbon::parse($article->created_at)->toFormattedDateString() }}</a>
+                                            <li><i class="fas fa-calendar"></i>
+                                                {{ \Carbon\Carbon::parse($article->created_at)->toFormattedDateString() }}
                                             </li>
-                                            <li><a href="#">
+                                            <li><a href="{{ route('main.category', $article->category->slug) }}">
                                                     <i class="fas fa-th-list    "></i>
                                                     {{ $article->category->title }}</a></li>
                                             <li><i class="fas fa-tag"></i>
                                                 @foreach ($article->tags as $tag)
-                                                    <a href="#">{{ $tag->title }}</a>,
+                                                    <a href="{{ route('main.tag', $tag->slug) }}">{{ $tag->title }}</a>,
                                                 @endforeach
 
                                             </li>
@@ -49,10 +50,10 @@
                         </nav>
                     </div>
 
-                    <x-main-sidebar-component/>
+                    <x-main-sidebar-component />
                 </div>
             </div>
         </section>
-        <x-footer-component/>
+        <x-footer-component />
 
     @endsection

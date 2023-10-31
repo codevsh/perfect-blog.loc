@@ -12,6 +12,8 @@ class Article extends Model
     use HasFactory;
     protected $table = 'articles';
     protected $guarded = false;
+    protected $withCount = ['LikedUsers'];
+    protected $with = ['category'];
     public function category()
     {
         return $this->belongsTo(Category::class);

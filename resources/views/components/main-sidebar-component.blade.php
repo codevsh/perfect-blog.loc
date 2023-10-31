@@ -18,8 +18,11 @@
                 <div class="row g-0 border rounded overflow-hidden d-flex shadow-sm h-md-250 position-relative mb-3"
                     style="font-size: 13px !imprtant;">
                     <div class="col py-2 px-2 d-flex flex-column position-static">
-                        <strong
-                            class="category-article d-inline-block mb-1 text-primary">{{ $item->category->title }}</strong>
+                        <a href="{{ route('main.category', $item->category->slug) }}" class="nav-link">
+                            <strong
+                                class="category-article d-inline-block mb-1 text-primary"><small>{{ $item->category->title }}</small>
+                            </strong>
+                        </a>
                         <h5 class="mb-0"><a class="text-dark text-decoration-none"
                                 href="{{ route('main.show', $item->slug) }}">{{ $item->title }}</a></h5>
                         </h5>
