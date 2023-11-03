@@ -42,7 +42,7 @@
                             </li>
                         </ul>
                         <ul class="list d-flex justify-content-between align-items-center w-50 ps-0">
-                            <li class="list-group-item"><i class="fab fa-linkedin-in fa-3x  text-secondary "></i></li>
+                            <li class="list-group-item"><i class="fab fa-linkedin fa-3x  text-secondary "></i></li>
                             <li class="list-group-item"><i class="fab fa-telegram-plane fa-3x  text-secondary "></i></li>
                             <li class="list-group-item"><i class="fab fa-instagram fa-3x  text-secondary "></i></li>
                             <li class="list-group-item"><i class="fab fa-twitter fa-3x text-secondary "></i></li>

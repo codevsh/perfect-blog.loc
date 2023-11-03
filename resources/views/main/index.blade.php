@@ -16,7 +16,7 @@
                                 <div class="post-card shadow-sm rounded-top">
                                     <img class="card-img-top rounded-top" src="{{ Storage::url($article->prev_img) }}"
                                         alt="">
-                                    <div class="post-card-body px-3 pb-2 d-flex flex-column">
+                                    <div class="post-card-body px-3 pb-3 d-flex flex-column">
                                         <h2>{{ $article->title }}</h2>
                                         <ul class="meta-data d-flex">
                                             <li><i class="fas fa-calendar"></i>
